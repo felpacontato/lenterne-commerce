@@ -32,11 +32,11 @@ main, .site-footer { position: relative; z-index: 1; }
 .hero-copy { position: relative; z-index: 2; min-height: calc(100svh - 5.25rem); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-top: var(--space-xl); padding-bottom: var(--space-3xl); }
 .hero-copy h1 { width: min(8.5ch, 62vw); margin: var(--space-md) 0; font: 750 var(--text-display) / .89 var(--font-display); letter-spacing: -.065em; overflow-wrap: anywhere; }
 .hero-copy > p:not(.eyebrow) { width: min(34rem, 45vw); margin: 0 0 var(--space-lg); color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
-.hero-collage { position: absolute; z-index: 2; inset: 0 0 0 45%; }
+.hero-collage { position: absolute; z-index: 2; inset: 0 0 0 60%; }
 .hero-collage img { position: absolute; object-fit: cover; }
 .hero-collage img:first-child { inset: 7% 4% 20% 0; width: 70%; height: 73%; }
 .hero-collage img:last-child { right: 0; bottom: 4%; width: 43%; height: 38%; border: .65rem solid var(--color-paper-2); }
-.hero-main-video { position: absolute; z-index: 2; inset: 0 0 0 50%; overflow: hidden; background: #0b0707; }
+.hero-main-video { position: absolute; z-index: 2; inset: 0 0 0 60%; overflow: hidden; background: #0b0707; }
 .hero-main-video video { width: 100%; height: 100%; object-fit: cover; }
 .occasion { padding-block: var(--space-3xl); }
 .occasion header { width: min(100%, 68rem); margin-inline: auto; text-align: center; }
@@ -265,7 +265,7 @@ main, .site-footer { position: relative; z-index: 1; }
   .site-header nav { display: none; position: absolute; inset: 100% 0 auto; padding: var(--space-md); background: var(--color-paper); border-bottom: var(--rule-thin) solid var(--color-rule); flex-direction: column; align-items: stretch; }
   .site-header nav.open { display: flex; }
   .menu-button { display: block; min-height: 2.75rem; padding-inline: var(--space-sm); }
-  .hero-collage { opacity: .7; left: 42%; }
+  .hero-collage { opacity: .7; left: 60%; }
   .hero-copy h1 { width: min(9ch, 78vw); }
   .hero-copy > p:not(.eyebrow) { width: min(32rem, 64vw); }
   .technical-row { grid-template-columns: 6rem minmax(0, 1fr) auto; }
