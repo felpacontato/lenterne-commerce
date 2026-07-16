@@ -14,6 +14,7 @@ Two coordinated storefronts — Brindes and Ferragens — with identical visual 
 ## Structure
 Home: full-bleed photographic hero → centered use-case statement → editorial product grid → animated process section.
 About: animated editorial hero → manufacturing narrative → four-item capability rail → contact CTA.
+Manager: restrained operational workspace with authentication, product list and focused editor; no marketing hero or decorative cards.
 
 ## Motion
 Background MP4 never exposes controls and loops continuously. Product images use restrained hover scale. Buttons use a two-pixel lift.

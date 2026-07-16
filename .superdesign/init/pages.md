@@ -21,3 +21,11 @@
 - `apps/{channel}/app/sobre/page.tsx`
   - `packages/storefront/src/about-page.tsx`
   - same shared layout and styling dependencies as Home.
+
+## `/gerente` — both storefronts
+
+- `apps/{channel}/app/gerente/page.tsx`
+  - `packages/storefront/src/manager-portal.tsx`
+  - `packages/storefront/src/styles.css`
+  - `packages/ui/src/base.css`
+  - `packages/ui/src/tokens.css`

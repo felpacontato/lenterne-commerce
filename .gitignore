@@ -9,6 +9,7 @@ output/playwright/
 .playwright-cli/
 .superdesign/tmp/
 .qa/
+.data/
 *.log
 *.tsbuildinfo
 .DS_Store

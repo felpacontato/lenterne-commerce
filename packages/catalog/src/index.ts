@@ -13,6 +13,7 @@ export type Product = {
   customizable: boolean;
   featured?: boolean;
   stock: "in_stock" | "low" | "quote";
+  stockQuantity?: number;
   specs: Record<string, string>;
   image: string;
   imageAlt: string;

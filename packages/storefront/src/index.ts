@@ -8,3 +8,5 @@ export * from "./site-shell";
 export * from "./neural-noise";
 export * from "./motion-backdrop";
 export * from "./about-page";
+export * from "./runtime-catalog";
+export * from "./manager-portal";

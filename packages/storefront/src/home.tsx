@@ -1,7 +1,8 @@
-import { byChannel, money } from "@lenterne/catalog";
+import { money } from "@lenterne/catalog";
 import { Arrow } from "@lenterne/ui";
 import type { BrandConfig } from "./brand";
 import { MotionBackdrop } from "./motion-backdrop";
+import { loadCatalog } from "./runtime-catalog";
 
 const homeContent = {
   brindes: {
@@ -26,8 +27,8 @@ const homeContent = {
   }
 } as const;
 
-export function HomePage({ brand }: { brand: BrandConfig }) {
-  const items = byChannel(brand.channel);
+export async function HomePage({ brand }: { brand: BrandConfig }) {
+  const items = await loadCatalog(brand.channel);
   const content = homeContent[brand.channel];
   return <main id="conteudo" className={`gifts-home ${brand.channel}-home`}>
     <section className="gifts-hero">

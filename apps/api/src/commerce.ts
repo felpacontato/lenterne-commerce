@@ -26,10 +26,10 @@ export class CommerceValidationError extends Error {
   constructor(public readonly issues: string[]) { super("Invalid commerce request"); }
 }
 
-export function priceLines(channel: Channel, requestedLines: RequestedLine[]): PricedLine[] {
+export function priceLines(channel: Channel, requestedLines: RequestedLine[], catalog = products): PricedLine[] {
   const issues: string[] = [];
   const lines = requestedLines.map((line) => {
-    const product = products.find((item) => item.id === line.productId && item.channel === channel);
+    const product = catalog.find((item) => item.id === line.productId && item.channel === channel);
     if (!product) {
       issues.push(`Produto ${line.productId} não pertence ao catálogo ${channel}.`);
       return undefined;
