@@ -5,6 +5,15 @@
     "macrostructure": "Photographic Catalogue + Technical Catalogue",
     "theme": "custom",
     "theme_axes": "neural-black / geometric-display / liquid-red",
+    "enrichment": "persistent MP4 motion + WebGL noise + balanced editorial rails",
+    "brief": "Lapidação responsiva das duas lojas e auditoria visual completa"
+  },
+  {
+    "date": "2026-07-16",
+    "scope": "app",
+    "macrostructure": "Photographic Catalogue + Technical Catalogue",
+    "theme": "custom",
+    "theme_axes": "neural-black / geometric-display / liquid-red",
     "enrichment": "owned product photography + optimized motion background + WebGL neural noise",
     "brief": "Experimento de movimento preservando checkpoint do tema escuro estático"
   },

@@ -1,18 +1,44 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function MotionBackdrop() {
-  const rootRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
+
   useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let visible = false;
-    const sync = () => { if (media.matches || !visible) videoRef.current?.pause(); else void videoRef.current?.play().catch(() => undefined); };
-    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { rootMargin: "120px" });
-    if (rootRef.current) observer.observe(rootRef.current);
-    media.addEventListener("change", sync);
-    return () => { observer.disconnect(); media.removeEventListener("change", sync); };
-  }, []);
-  return <div ref={rootRef} className="motion-backdrop" aria-hidden="true"><video ref={videoRef} muted loop playsInline preload="metadata" poster="/media/liquid-red-poster.jpg"><source src="/media/liquid-red.mp4" type="video/mp4" /></video><span /></div>;
+    const play = () => {
+      if (!paused) void videoRef.current?.play().catch(() => undefined);
+    };
+    play();
+    window.addEventListener("pageshow", play);
+    document.addEventListener("visibilitychange", play);
+    return () => {
+      window.removeEventListener("pageshow", play);
+      document.removeEventListener("visibilitychange", play);
+    };
+  }, [paused]);
+
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play().then(() => setPaused(false)).catch(() => undefined);
+    } else {
+      video.pause();
+      setPaused(true);
+    }
+  };
+
+  return <>
+    <div className="motion-backdrop" aria-hidden="true">
+      <video ref={videoRef} autoPlay muted loop playsInline preload="auto" poster="/media/liquid-red-poster.jpg" onCanPlay={() => { if (!paused) void videoRef.current?.play().catch(() => undefined); }}>
+        <source src="/media/liquid-red.mp4" type="video/mp4" />
+      </video>
+      <span />
+    </div>
+    <button className="motion-control" type="button" onClick={togglePlayback} aria-label={paused ? "Reproduzir fundo animado" : "Pausar fundo animado"} title={paused ? "Reproduzir fundo animado" : "Pausar fundo animado"}>
+      {paused ? "Reproduzir fundo" : "Pausar fundo"}
+    </button>
+  </>;
 }
