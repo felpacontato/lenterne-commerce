@@ -4,6 +4,7 @@ import { useState, type ReactNode } from "react";
 import { Logo } from "@lenterne/ui";
 import { CartProvider, useCart } from "./cart";
 import type { BrandConfig } from "./brand";
+import { NeuralNoise } from "./neural-noise";
 
 function Header({ brand }: { brand: BrandConfig }) {
   const [open, setOpen] = useState(false);
@@ -16,6 +17,5 @@ function Footer({ brand }: { brand: BrandConfig }) {
 }
 
 export function SiteShell({ brand, children }: { brand: BrandConfig; children: ReactNode }) {
-  return <CartProvider channel={brand.channel}><Header brand={brand} />{children}<Footer brand={brand} /></CartProvider>;
+  return <CartProvider channel={brand.channel}><div className="ambient-background"><NeuralNoise /></div><Header brand={brand} />{children}<Footer brand={brand} /></CartProvider>;
 }
-

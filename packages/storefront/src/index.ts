@@ -5,4 +5,5 @@ export * from "./product-page";
 export * from "./quote-page";
 export * from "./cart";
 export * from "./site-shell";
-
+export * from "./neural-noise";
+export * from "./motion-backdrop";

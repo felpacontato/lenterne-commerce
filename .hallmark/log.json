@@ -4,6 +4,15 @@
     "scope": "app",
     "macrostructure": "Photographic Catalogue + Technical Catalogue",
     "theme": "custom",
+    "theme_axes": "neural-black / geometric-display / liquid-red",
+    "enrichment": "owned product photography + optimized motion background + WebGL neural noise",
+    "brief": "Experimento de movimento preservando checkpoint do tema escuro estático"
+  },
+  {
+    "date": "2026-07-16",
+    "scope": "app",
+    "macrostructure": "Photographic Catalogue + Technical Catalogue",
+    "theme": "custom",
     "theme_axes": "black-industrial / geometric-display / brand-red",
     "enrichment": "owned product photography",
     "brief": "Revisão escura e conteúdo real das plataformas Lenterne"
