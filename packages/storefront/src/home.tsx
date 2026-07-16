@@ -1,7 +1,7 @@
-import { money } from "@lenterne/catalog";
 import { Arrow } from "@lenterne/ui";
 import type { BrandConfig } from "./brand";
 import { MotionBackdrop } from "./motion-backdrop";
+import { ProductCarousel } from "./product-carousel";
 import { loadCatalog } from "./runtime-catalog";
 
 const homeContent = {
@@ -37,7 +37,7 @@ export async function HomePage({ brand }: { brand: BrandConfig }) {
       <div className="hero-main-video"><video autoPlay muted loop playsInline preload="metadata" aria-label="Produtos e produção da Lenterne em movimento"><source src="/media/lenterne-original.mp4" type="video/mp4" /></video></div>
     </section>
     <section className="occasion shell"><header><h2>{content.statement}</h2><p>{content.support}</p></header><div className="occasion-list">{content.uses.map((use) => <span key={use}>{use}</span>)}</div></section>
-    <section className="featured-products shell"><div className="section-head"><h2>{content.productsTitle}</h2><a href="/catalogo">Ver catálogo completo <Arrow /></a></div><div className="editorial-grid">{items.slice(0, 3).map((product, index) => <a className={`editorial-product product-${index + 1}`} href={`/produto/${product.slug}`} key={product.id}><figure><img src={product.image} alt={product.imageAlt} /></figure><div><h3>{product.name}</h3><p>A partir de {product.minimumQuantity.toLocaleString("pt-BR")} unidades · {money(product.price)} por unidade</p></div></a>)}</div></section>
+    <section className="featured-products shell" id="produtos-destaque"><div className="section-head"><h2>{content.productsTitle}</h2><a href="/catalogo">Ver catálogo completo <Arrow /></a></div><ProductCarousel products={items.slice(0, 6)} /></section>
     <section className="process"><MotionBackdrop /><div className="shell process-inner"><h2>{content.processTitle}</h2><ol>{content.steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>)}</ol><a className="button button-secondary" href="/orcamento">{content.processCta}</a></div></section>
   </main>;
 }

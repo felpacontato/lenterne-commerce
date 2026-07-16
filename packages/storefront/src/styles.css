@@ -49,7 +49,23 @@ main, .site-footer { position: relative; z-index: 1; }
 .section-head h2 { margin: 0; font: 700 var(--text-2xl) var(--font-display); letter-spacing: -.045em; }
 .section-head a { text-decoration: underline; text-underline-offset: .4rem; white-space: nowrap; }
 .featured-products { padding-bottom: var(--space-3xl); }
-.featured-products .section-head, .editorial-grid { width: min(100%, 74rem); margin-inline: auto; }
+.featured-products .section-head, .product-carousel { width: min(100%, 82rem); margin-inline: auto; }
+.product-carousel { position: relative; }
+.carousel-track { display: flex; gap: var(--space-md); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-inline: contain; padding-bottom: var(--space-sm); }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-product { flex: 0 0 calc((100% - (2 * var(--space-md))) / 3); min-width: 0; scroll-snap-align: start; }
+.carousel-product figure { aspect-ratio: 4 / 4.65; margin: 0 0 var(--space-md); overflow: clip; background: var(--color-paper-2); }
+.carousel-product img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-long) var(--ease-out); }
+.carousel-product:hover img { transform: scale(1.025); }
+.carousel-product span, .carousel-product p, .carousel-product small { color: var(--color-ink-2); font-size: var(--text-xs); }
+.carousel-product span { font-family: var(--font-mono); text-transform: uppercase; }
+.carousel-product h3 { margin: var(--space-2xs) 0; font: 650 var(--text-xl) var(--font-display); }
+.carousel-product p { margin: 0 0 var(--space-xs); }
+.carousel-product strong { display: block; }
+.carousel-control { position: absolute; z-index: 2; top: calc(50% - 3.5rem); width: 3rem; height: 3rem; display: grid; place-items: center; border: var(--rule-thin) solid color-mix(in oklch, var(--color-ink) 32%, transparent); border-radius: 50%; background: color-mix(in oklch, var(--color-paper) 90%, transparent); color: var(--color-ink); font-size: var(--text-lg); backdrop-filter: blur(10px); transition: background var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out); }
+.carousel-control:hover { background: var(--color-ink); color: var(--color-paper); transform: scale(1.05); }
+.carousel-control.previous { left: -1.5rem; }
+.carousel-control.next { right: -1.5rem; }
 .editorial-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: var(--space-xl); align-items: start; }
 .editorial-product figure { margin: 0 0 var(--space-md); overflow: clip; background: var(--color-paper-2); }
 .editorial-product img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-long) var(--ease-out); }
@@ -296,6 +312,9 @@ main, .site-footer { position: relative; z-index: 1; }
   .technical-row { grid-template-columns: 6rem minmax(0, 1fr) auto; }
   .technical-row dl { display: none; }
   .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .carousel-product { flex-basis: calc((100% - var(--space-md)) / 2); }
+  .carousel-control.previous { left: var(--space-xs); }
+  .carousel-control.next { right: var(--space-xs); }
   .about-story, .about-showcase > header { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-story > div, .about-showcase > header > h2 { grid-column: 2 / -1; }
   .about-capabilities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -327,6 +346,8 @@ main, .site-footer { position: relative; z-index: 1; }
   .about-showcase article:nth-child(odd), .about-showcase article:nth-child(even) { padding-inline: 0; border-right: 0; }
   .occasion-list, .spec-strip .shell { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .editorial-grid { grid-template-columns: minmax(0, 1fr); }
+  .carousel-product { flex-basis: min(82vw, 24rem); }
+  .carousel-control { display: none; }
   .product-1 { grid-row: auto; }
   .product-2 figure, .product-3 figure { aspect-ratio: 4 / 4.4; }
   .hardware-hero { min-height: auto; padding-block: var(--space-2xl); }
