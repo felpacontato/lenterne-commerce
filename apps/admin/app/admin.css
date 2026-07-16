@@ -1,0 +1,29 @@
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 */
+/* Hallmark · genre: modern-minimal · macrostructure: Workbench · design-system: design.md · designed-as-app */
+@import "@lenterne/ui/base.css";
+.admin-shell { min-height: 100svh; display: grid; grid-template-columns: 16rem minmax(0, 1fr); }
+.admin-shell > aside { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; gap: var(--space-md); padding: var(--space-lg); background: var(--color-industrial); color: var(--color-paper); }
+.admin-logo { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border-radius: 50% 50% 50% var(--radius-sm); background: var(--color-accent); font: 700 var(--text-lg) var(--font-display); }
+.admin-shell aside nav { display: grid; gap: var(--space-2xs); margin-top: var(--space-lg); }
+.admin-shell aside nav a { padding: var(--space-xs); color: color-mix(in oklch, var(--color-paper) 72%, transparent); }
+.admin-shell aside nav a.active, .admin-shell aside nav a:hover { color: var(--color-paper); background: var(--color-industrial-2); }
+.admin-shell aside small { margin-top: auto; }
+.admin-shell > section { min-width: 0; padding: var(--space-xl); }
+.admin-shell > section > header { display: flex; justify-content: space-between; align-items: end; border-bottom: var(--rule-thin) solid var(--color-rule); padding-bottom: var(--space-md); }
+.admin-shell header p { margin: 0; color: var(--color-ink-2); }
+.admin-shell h1 { margin: var(--space-2xs) 0 0; font: 700 var(--text-xl) var(--font-display); }
+.admin-shell button { min-height: 2.75rem; padding: var(--space-xs) var(--space-sm); border: var(--rule-thin) solid var(--color-ink); background: var(--color-ink); color: var(--color-paper); }
+.summary { padding-block: var(--space-xl); }
+.summary dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-block: var(--rule-thin) solid var(--color-rule); }
+.summary dl div { padding: var(--space-md); border-right: var(--rule-thin) solid var(--color-rule); }
+.summary dt { color: var(--color-ink-2); font-size: var(--text-sm); }
+.summary dd { margin: var(--space-xs) 0 0; font: 700 var(--text-xl) var(--font-display); }
+.summary p { color: var(--color-ink-2); }
+.admin-table { margin-top: var(--space-xl); }
+.table-head { display: flex; justify-content: space-between; align-items: center; }
+.table-head h2 { font: 650 var(--text-lg) var(--font-display); }
+.table-row { display: grid; grid-template-columns: minmax(14rem, 1.5fr) repeat(3, minmax(7rem, .6fr)) auto; gap: var(--space-md); align-items: center; padding-block: var(--space-sm); border-top: var(--rule-thin) solid var(--color-rule); }
+.table-row > div:first-child { display: grid; }
+.table-row span { color: var(--color-ink-2); font-size: var(--text-xs); }
+.table-row button { background: transparent; color: var(--color-ink); }
+@media (max-width: 48rem) { .admin-shell { grid-template-columns: minmax(0, 1fr); } .admin-shell > aside { position: static; height: auto; } .admin-shell aside nav { display: flex; overflow-x: auto; } .summary dl { grid-template-columns: minmax(0, 1fr); } .table-row { grid-template-columns: minmax(0, 1fr) auto; } .table-row > div:nth-child(2), .table-row > div:nth-child(3), .table-row > div:nth-child(4) { display: none; } }

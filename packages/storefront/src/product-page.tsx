@@ -1,0 +1,13 @@
+import { money, type Product } from "@lenterne/catalog";
+import { AddToCart } from "./cart";
+
+export function ProductPage({ product }: { product: Product }) {
+  const total = product.price * product.minimumQuantity;
+  return <main id="conteudo" className={`product-page ${product.channel}`}><nav className="breadcrumbs shell" aria-label="Navegação estrutural"><a href="/catalogo">Catálogo</a><span>/</span><span>{product.category}</span></nav><section className="product-detail shell"><figure className="product-image"><img src={product.image} alt={product.imageAlt} /></figure><div className="product-info"><p className="eyebrow">{product.category}</p><h1>{product.name}</h1><p className="product-description">{product.description}</p><p className="status" data-stock={product.stock}>{product.stock === "in_stock" ? "Disponível para pedido" : product.stock === "low" ? "Estoque limitado — confirme o prazo" : "Produção sob orçamento"}</p><div className="price-block"><strong>{money(product.price)}</strong><span>{product.unitLabel}</span><p>Lote mínimo estimado: {money(total)}</p></div><AddToCart product={product} label={product.customizable ? "Adicionar e personalizar" : "Adicionar ao pedido"} /><a className="button button-secondary" href={`/orcamento?produto=${product.slug}`}>Falar com atendimento</a><p className="price-note">Valores do catálogo inicial precisam ser confirmados antes da publicação.</p></div></section><section className="product-specs shell"><h2>Especificações</h2><dl>{Object.entries(product.specs).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}<div><dt>Quantidade mínima</dt><dd>{product.minimumQuantity.toLocaleString("pt-BR")} unidades</dd></div></dl></section>{product.customizable && <section className="customization shell"><div><p className="eyebrow">Personalização</p><h2>Sua arte entra depois da escolha.</h2></div><p>Adicione o produto ao pedido e envie o arquivo no formulário. A produção só começa depois da conferência e aprovação.</p></section>}<ProductStructuredData product={product} /></main>;
+}
+
+function ProductStructuredData({ product }: { product: Product }) {
+  const data = { "@context": "https://schema.org", "@type": "Product", name: product.name, image: [product.image], description: product.description, sku: product.id, brand: { "@type": "Brand", name: "Lenterne" }, offers: { "@type": "Offer", priceCurrency: "BRL", price: product.price, availability: product.stock === "in_stock" ? "https://schema.org/InStock" : "https://schema.org/LimitedAvailability" } };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
+}
+

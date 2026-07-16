@@ -1,0 +1,1 @@
+export default function Page() { return <main id="conteudo" className="quote-page shell"><header><div><h1>Componentes direto de quem fabrica.</h1></div><p>Há mais de 10 anos, a Lenterne atende produção, montagem, identificação e brindes. A operação Ferragens organiza argolas, garras e clips em uma experiência técnica própria.</p></header></main>; }

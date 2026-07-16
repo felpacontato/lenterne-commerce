@@ -1,0 +1,1 @@
+export default function Page() { return <main id="conteudo" className="quote-page shell"><header><div><h1>Privacidade.</h1></div><p>Texto jurídico definitivo pendente de validação antes da publicação. O formulário utiliza os dados somente para atendimento do pedido e orçamento.</p></header></main>; }

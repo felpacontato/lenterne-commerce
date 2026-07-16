@@ -1,0 +1,9 @@
+{
+  "name": "@lenterne/storefront",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts", "./styles.css": "./src/styles.css" },
+  "dependencies": { "@lenterne/catalog": "*", "@lenterne/ui": "*" },
+  "peerDependencies": { "next": ">=15", "react": ">=19", "react-dom": ">=19" }
+}
