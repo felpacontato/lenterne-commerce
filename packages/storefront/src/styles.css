@@ -39,12 +39,17 @@ main, .site-footer { position: relative; z-index: 1; }
 .hero-main-video { position: absolute; z-index: 2; inset: 0 0 0 60%; overflow: hidden; background: #0b0707; }
 .hero-main-video video { width: 100%; height: 100%; object-fit: cover; }
 .occasion { padding-block: var(--space-3xl); }
-.occasion header { width: min(100%, 68rem); margin-inline: auto; text-align: center; }
-.occasion header p { width: min(100%, 42rem); margin: var(--space-md) auto 0; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
-.occasion h2 { margin: 0 auto; font: 700 var(--text-2xl) / 1.02 var(--font-display); letter-spacing: -.045em; text-wrap: balance; }
-.occasion-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: var(--space-2xl); border-top: var(--rule-thin) solid var(--color-rule); }
-.occasion-list span { display: grid; min-height: 4.75rem; padding: var(--space-md); place-items: center; border-bottom: var(--rule-thin) solid var(--color-rule); text-align: center; }
-.occasion-list span + span { border-left: var(--rule-thin) solid var(--color-rule); }
+.occasion header { width: min(100%, 82rem); margin-inline: auto; text-align: center; }
+.occasion header p { width: min(100%, 54rem); margin: var(--space-md) auto 0; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
+.occasion h2 { max-width: 32ch; margin: 0 auto; font: 700 var(--text-2xl) / 1.02 var(--font-display); letter-spacing: -.045em; text-wrap: pretty; }
+.occasion-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-2xl); }
+.occasion-list article { min-width: 0; overflow: clip; border: var(--rule-thin) solid var(--color-rule); border-radius: var(--radius-lg); background: color-mix(in oklch, var(--color-paper-2) 78%, transparent); }
+.occasion-list figure { aspect-ratio: 4 / 3; margin: 0; overflow: clip; background: var(--color-paper-2); }
+.occasion-list img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-long) var(--ease-out); }
+.occasion-list article:hover img { transform: scale(1.035); }
+.occasion-list article > div { min-height: 6.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-md); padding: var(--space-md); border-top: var(--rule-thin) solid var(--color-rule); }
+.occasion-list span { color: var(--color-ink-2); font: var(--text-xs) var(--font-mono); }
+.occasion-list h3 { margin: 0; font: 650 var(--text-lg) / 1.15 var(--font-display); }
 .section-head { display: flex; align-items: end; justify-content: space-between; gap: var(--space-lg); margin-bottom: var(--space-xl); }
 .section-head h2 { margin: 0; font: 700 var(--text-2xl) var(--font-display); letter-spacing: -.045em; }
 .section-head a { text-decoration: underline; text-underline-offset: .4rem; white-space: nowrap; }
@@ -113,7 +118,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .about-showcase { padding-bottom: var(--space-3xl); }
 .about-showcase > header { position: relative; min-height: clamp(22rem, 34vw, 30rem); display: flex; align-items: center; justify-content: center; }
 .about-showcase > header > p { position: absolute; top: var(--space-2xl); left: var(--space-md); margin: 0; }
-.about-showcase > header h2 { width: min(100% - 4rem, 60rem); max-width: 18ch; margin: 0; font: 700 var(--text-2xl) / 1 var(--font-display); letter-spacing: -.05em; text-align: center; }
+.about-showcase > header h2 { width: min(100% - 4rem, 72rem); max-width: 28ch; margin: 0; font: 700 var(--text-2xl) / 1 var(--font-display); letter-spacing: -.05em; text-align: center; text-wrap: pretty; }
 .about-showcase > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: var(--rule-thin) solid var(--color-rule); }
 .about-showcase article { min-width: 0; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-md); padding: var(--space-lg); border-bottom: var(--rule-thin) solid var(--color-rule); }
 .about-showcase article:nth-child(odd) { border-right: var(--rule-thin) solid var(--color-rule); }
@@ -313,6 +318,7 @@ main, .site-footer { position: relative; z-index: 1; }
   .technical-row { grid-template-columns: 6rem minmax(0, 1fr) auto; }
   .technical-row dl { display: none; }
   .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .occasion-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .carousel-product { flex-basis: calc((100% - var(--space-md)) / 2); }
   .carousel-control.previous { left: var(--space-xs); }
   .carousel-control.next { right: var(--space-xs); }
