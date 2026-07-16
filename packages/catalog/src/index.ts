@@ -151,6 +151,36 @@ export const products: Product[] = [
     specs: { Argola: "22 mm", Material: "Metal", Pacote: "1.000 unidades" },
     image: "https://static.wixstatic.com/media/8cfa65_7c9955bdf2bb43998794e0180d5d4050~mv2.jpg/v1/fill/w_980,h_939,al_c,q_85/8cfa65_7c9955bdf2bb43998794e0180d5d4050~mv2.jpg",
     imageAlt: "Clip jacaré com argola"
+  },
+  {
+    id: "gift-caldereta-personalizada", slug: "caldereta-300ml-personalizada", channel: "brindes", name: "Caldereta 300 ml personalizada", category: "Copos personalizados", description: "Copo Caldereta de 300 ml personalizado para festas, eventos e ações de marca.", price: 3.6, unitLabel: "por unidade no lote mínimo", minimumQuantity: 50, customizable: true, stock: "quote", specs: { Capacidade: "300 ml", Lote: "50 unidades", Personalização: "Inclusa" }, image: "https://static.wixstatic.com/media/8cfa65_700c0860b9a542398965c83ac2e069b8~mv2.jpg/v1/fill/w_980,h_1179,al_c,q_85/8cfa65_700c0860b9a542398965c83ac2e069b8~mv2.jpg", imageAlt: "Copo Caldereta personalizado"
+  },
+  {
+    id: "gift-caldereta-lisa", slug: "caldereta-300ml-sem-personalizacao", channel: "brindes", name: "Caldereta 300 ml sem personalização", category: "Copos", description: "Copo Caldereta de 300 ml sem impressão, pronto para eventos e revenda.", price: 2, unitLabel: "por unidade no lote mínimo", minimumQuantity: 50, customizable: false, stock: "in_stock", specs: { Capacidade: "300 ml", Lote: "50 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_700c0860b9a542398965c83ac2e069b8~mv2.jpg/v1/fill/w_980,h_1179,al_c,q_85/8cfa65_700c0860b9a542398965c83ac2e069b8~mv2.jpg", imageAlt: "Copo Caldereta sem personalização"
+  },
+  {
+    id: "gift-prancheta-a5", slug: "prancheta-mdf-a5", channel: "brindes", name: "Prancheta MDF A5", category: "Acessórios", description: "Prancheta compacta em MDF no formato A5 para atendimento, eventos e organização.", price: 3.2, unitLabel: "por unidade no lote mínimo", minimumQuantity: 10, customizable: false, stock: "in_stock", specs: { Formato: "A5", Material: "MDF", Lote: "10 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_6182dd46ced34d5fbcb9b1765533cfb3~mv2.jpg/v1/fill/w_980,h_980,al_c,q_85/8cfa65_6182dd46ced34d5fbcb9b1765533cfb3~mv2.jpg", imageAlt: "Prancheta MDF A5"
+  },
+  {
+    id: "gift-porta-oculos", slug: "porta-oculos-personalizado", channel: "brindes", name: "Porta-óculos personalizado", category: "Acessórios personalizados", description: "Cordão porta-óculos personalizado, útil para eventos, equipes e ações promocionais.", price: 2.99, unitLabel: "por unidade no lote mínimo", minimumQuantity: 50, customizable: true, stock: "quote", specs: { Lote: "50 unidades", Personalização: "Sob consulta" }, image: "https://static.wixstatic.com/media/8cfa65_82ebca7ed55b419cb3671f87d7053dce~mv2.jpeg/v1/fill/w_980,h_980,al_c,q_85/8cfa65_82ebca7ed55b419cb3671f87d7053dce~mv2.jpeg", imageAlt: "Porta-óculos personalizado"
+  },
+  {
+    id: "gift-protetor-horizontal", slug: "protetor-cracha-horizontal", channel: "brindes", name: "Protetor de crachá horizontal", category: "Identificação", description: "Protetor plástico horizontal para cartões e crachás corporativos.", price: 3.4, unitLabel: "por unidade no lote mínimo", minimumQuantity: 100, customizable: false, stock: "in_stock", specs: { Orientação: "Horizontal", Lote: "100 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_bd7a941ef07343538e4920b1ff00512e~mv2.png/v1/fill/w_980,h_980,al_c,q_90/8cfa65_bd7a941ef07343538e4920b1ff00512e~mv2.png", imageAlt: "Protetor horizontal para crachá"
+  },
+  {
+    id: "hardware-ring-16", slug: "argola-chaveiro-16mm", channel: "ferragens", name: "Argola para chaveiro 16 mm", category: "Argolas", description: "Argola metálica de 16 mm para chaveiros, brindes e montagem de acessórios.", price: .04, unitLabel: "por unidade no pacote", minimumQuantity: 1000, customizable: false, stock: "in_stock", specs: { Diâmetro: "16 mm", Pacote: "1.000 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_f1642993b24c4b6e9a3578f502d89009~mv2.jpg/v1/fill/w_980,h_780,al_c,q_85/8cfa65_f1642993b24c4b6e9a3578f502d89009~mv2.jpg", imageAlt: "Argola metálica 16 mm"
+  },
+  {
+    id: "hardware-ring-19", slug: "argola-chaveiro-19mm", channel: "ferragens", name: "Argola para chaveiro 19 mm", category: "Argolas", description: "Argola metálica de 19 mm para chaveiros, brindes e montagem de acessórios.", price: .05, unitLabel: "por unidade no pacote", minimumQuantity: 1000, customizable: false, stock: "in_stock", specs: { Diâmetro: "19 mm", Pacote: "1.000 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_f1642993b24c4b6e9a3578f502d89009~mv2.jpg/v1/fill/w_980,h_780,al_c,q_85/8cfa65_f1642993b24c4b6e9a3578f502d89009~mv2.jpg", imageAlt: "Argola metálica 19 mm"
+  },
+  {
+    id: "hardware-ring-22", slug: "argola-chaveiro-22mm", channel: "ferragens", name: "Argola para chaveiro 22 mm", category: "Argolas", description: "Argola metálica de 22 mm para chaveiros, brindes e montagem de acessórios.", price: .06, unitLabel: "por unidade no pacote", minimumQuantity: 1000, customizable: false, stock: "in_stock", specs: { Diâmetro: "22 mm", Pacote: "1.000 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_f1642993b24c4b6e9a3578f502d89009~mv2.jpg/v1/fill/w_980,h_780,al_c,q_85/8cfa65_f1642993b24c4b6e9a3578f502d89009~mv2.jpg", imageAlt: "Argola metálica 22 mm"
+  },
+  {
+    id: "hardware-claw-9", slug: "garra-dentada-9mm", channel: "ferragens", name: "Garra dentada 9 mm", category: "Garras para cordão", description: "Garra metálica dentada para acabamento firme de cordões de 9 mm.", price: .066, unitLabel: "por unidade no pacote", minimumQuantity: 1000, customizable: false, stock: "in_stock", specs: { Largura: "9 mm", Pacote: "1.000 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_8c56d4b5e44143a8a72c0ac61d9cd7fc~mv2.jpg/v1/fill/w_980,h_1738,al_c,q_85/8cfa65_8c56d4b5e44143a8a72c0ac61d9cd7fc~mv2.jpg", imageAlt: "Garra dentada 9 mm"
+  },
+  {
+    id: "hardware-claw-25", slug: "garra-dentada-25mm", channel: "ferragens", name: "Garra dentada 25 mm", category: "Garras para cordão", description: "Garra metálica dentada para acabamento firme de cordões de 25 mm.", price: .11, unitLabel: "por unidade no pacote", minimumQuantity: 1000, customizable: false, stock: "in_stock", specs: { Largura: "25 mm", Pacote: "1.000 unidades" }, image: "https://static.wixstatic.com/media/8cfa65_8c56d4b5e44143a8a72c0ac61d9cd7fc~mv2.jpg/v1/fill/w_980,h_1738,al_c,q_85/8cfa65_8c56d4b5e44143a8a72c0ac61d9cd7fc~mv2.jpg", imageAlt: "Garra dentada 25 mm"
   }
 ];
 

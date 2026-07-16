@@ -9,7 +9,7 @@ export class ProductStore {
   constructor(file = process.env.CATALOG_DATA_FILE ?? resolve(process.cwd(), ".data", "catalog.json")) { this.file = file; }
 
   private async read(): Promise<Product[]> {
-    try { return JSON.parse(await readFile(this.file, "utf8")) as Product[]; }
+    try { const stored = JSON.parse(await readFile(this.file, "utf8")) as Product[]; const known = new Set(stored.map((item) => item.id)); const merged = [...stored, ...products.filter((item) => !known.has(item.id))]; if (merged.length !== stored.length) await this.write(merged); return merged; }
     catch { await this.write(products); return structuredClone(products); }
   }
 
