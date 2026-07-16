@@ -7,7 +7,7 @@ Reconstrução independente da operação atual no Wix. Este monorepo contém du
 - `apps/brindes` — brindes e personalizados (`localhost:3000`).
 - `apps/ferragens` — ferragens e atacado (`localhost:3001`).
 - `apps/admin` — administração central (`localhost:3002`).
-- `apps/api` — catálogo, orçamentos e pedidos (`localhost:4000`).
+- `apps/api` — catálogo, orçamentos e pedidos (`localhost:4100`).
 
 ## Primeira execução
 
@@ -22,4 +22,3 @@ As lojas usam catálogo inicial versionado para poderem ser avaliadas sem banco.
 ## Segurança de lançamento
 
 Domínios, pagamentos, e-mail e frete usam adaptadores configuráveis. Produção só deve ser ativada após homologação e inclusão das credenciais no provedor de deploy.
-

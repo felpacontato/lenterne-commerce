@@ -8,4 +8,5 @@ coverage/
 output/playwright/
 .playwright-cli/
 *.log
+*.tsbuildinfo
 .DS_Store

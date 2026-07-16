@@ -29,6 +29,5 @@ app.post("/quotes", { config: { rateLimit: { max: 10, timeWindow: "1 minute" } }
 
 app.post("/orders", async (_request, reply) => reply.code(501).send({ error: "payment_provider_not_configured", message: "Ative PAYMENT_PROVIDER após a homologação comercial." }));
 
-const port = Number(process.env.API_PORT ?? 4000);
+const port = Number(process.env.API_PORT ?? 4100);
 await app.listen({ port, host: "0.0.0.0" });
-
