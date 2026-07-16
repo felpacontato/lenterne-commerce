@@ -3,9 +3,40 @@ import { Arrow } from "@lenterne/ui";
 import type { BrandConfig } from "./brand";
 import { MotionBackdrop } from "./motion-backdrop";
 
+const homeContent = {
+  brindes: {
+    eyebrow: "Fabricação própria · Taboão da Serra",
+    statement: "Brindes para acompanhar pessoas no evento, no trabalho e no dia a dia.",
+    support: "Produtos úteis mantêm sua marca presente na rotina de clientes, equipes e convidados.",
+    uses: ["Eventos corporativos", "Identificação de equipes", "Festas e lembranças", "Ações promocionais"],
+    productsTitle: "Produtos para personalizar",
+    processTitle: "Da sua arte para a produção.",
+    steps: ["Escolha o produto e informe a quantidade.", "Envie a identidade visual da empresa ou do evento.", "Confira e aprove antes de iniciarmos a fabricação."],
+    processCta: "Solicitar orçamento"
+  },
+  ferragens: {
+    eyebrow: "Fornecimento direto · Taboão da Serra",
+    statement: "Ferragens para produzir, montar e entregar com padrão.",
+    support: "Componentes de linha para chaveiros, cordões, crachás e operações que compram em volume.",
+    uses: ["Argolas para chaveiro", "Garras para cordão", "Clips e conjuntos", "Atacado e revenda"],
+    productsTitle: "Componentes para sua produção",
+    processTitle: "Da medida certa ao seu estoque.",
+    steps: ["Escolha o componente e confira as medidas.", "Informe a quantidade e a frequência de compra.", "Confirme disponibilidade, prazo e condição comercial."],
+    processCta: "Solicitar cotação"
+  }
+} as const;
+
 export function HomePage({ brand }: { brand: BrandConfig }) {
   const items = byChannel(brand.channel);
-  if (brand.channel === "brindes") return <main id="conteudo" className="gifts-home"><section className="gifts-hero"><MotionBackdrop /><div className="shell hero-copy"><p className="eyebrow">Fabricação própria · Taboão da Serra</p><h1>{brand.headline}</h1><p>{brand.intro}</p><a className="button button-primary" href="/catalogo">{brand.primaryCta} <Arrow /></a></div><div className="hero-collage" aria-hidden="true"><img src={items[0].image} alt="" /><img src={items[1].image} alt="" /></div></section><section className="occasion shell"><header><h2>Brindes para acompanhar pessoas no evento, no trabalho e no dia a dia.</h2><p>Produtos úteis mantêm sua marca presente na rotina de clientes, equipes e convidados.</p></header><div className="occasion-list"><span>Eventos corporativos</span><span>Identificação de equipes</span><span>Festas e lembranças</span><span>Ações promocionais</span></div></section><section className="featured-products shell"><div className="section-head"><h2>Produtos para personalizar</h2><a href="/catalogo">Ver catálogo completo <Arrow /></a></div><div className="editorial-grid">{items.slice(0, 3).map((product, index) => <a className={`editorial-product product-${index + 1}`} href={`/produto/${product.slug}`} key={product.id}><figure><img src={product.image} alt={product.imageAlt} /></figure><div><h3>{product.name}</h3><p>A partir de {product.minimumQuantity} unidades · {money(product.price)} por unidade</p></div></a>)}</div></section><section className="process"><MotionBackdrop /><div className="shell process-inner"><h2>Da sua arte para a produção.</h2><ol><li><span>01</span>Escolha o produto e informe a quantidade.</li><li><span>02</span>Envie a identidade visual da empresa ou do evento.</li><li><span>03</span>Confira e aprove antes de iniciarmos a fabricação.</li></ol><a className="button button-secondary" href="/orcamento">Solicitar orçamento</a></div></section></main>;
-
-  return <main id="conteudo" className="hardware-home"><section className="hardware-hero shell"><div><h1>{brand.headline}</h1></div><div className="hardware-intro"><p>{brand.intro}</p><a className="button button-primary" href="/catalogo">{brand.primaryCta} <Arrow /></a></div></section><section className="spec-strip"><div className="shell"><span>Argolas · 13—22 mm</span><span>Garras · 09—25 mm</span><span>Clips · solto ou montado</span><span>Atacado e revenda</span></div></section><section className="technical-catalog shell"><aside><p className="eyebrow">Ferragens para identificação</p><h2>Medidas claras para escolher a peça certa.</h2><a href="/catalogo">Todos os itens <Arrow /></a></aside><div className="technical-list">{items.map((product) => <a href={`/produto/${product.slug}`} className="technical-row" key={product.id}><img src={product.image} alt={product.imageAlt} /><div><span>{product.category}</span><h3>{product.name}</h3></div><dl>{Object.entries(product.specs).slice(0, 2).map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><strong>{money(product.price)}<small>/un.</small></strong><Arrow /></a>)}</div></section><section className="manufacturing"><MotionBackdrop /><div className="shell"><p className="eyebrow">Fabricação e injeção plástica</p><h2>Além dos produtos próprios, desenvolvemos projetos, moldes e serviços por hora-máquina.</h2><p className="manufacturing-copy">Atendimento para quem precisa produzir, montar ou desenvolver uma solução plástica com acompanhamento direto da fábrica.</p><a className="button button-secondary" href="/orcamento">Conversar sobre o projeto</a></div></section></main>;
+  const content = homeContent[brand.channel];
+  return <main id="conteudo" className={`gifts-home ${brand.channel}-home`}>
+    <section className="gifts-hero">
+      <MotionBackdrop />
+      <div className="shell hero-copy"><p className="eyebrow">{content.eyebrow}</p><h1>{brand.headline}</h1><p>{brand.intro}</p><a className="button button-primary" href="/catalogo">{brand.primaryCta} <Arrow /></a></div>
+      <div className="hero-collage" aria-hidden="true"><img src={items[0].image} alt="" /><img src={items[1].image} alt="" /></div>
+    </section>
+    <section className="occasion shell"><header><h2>{content.statement}</h2><p>{content.support}</p></header><div className="occasion-list">{content.uses.map((use) => <span key={use}>{use}</span>)}</div></section>
+    <section className="featured-products shell"><div className="section-head"><h2>{content.productsTitle}</h2><a href="/catalogo">Ver catálogo completo <Arrow /></a></div><div className="editorial-grid">{items.slice(0, 3).map((product, index) => <a className={`editorial-product product-${index + 1}`} href={`/produto/${product.slug}`} key={product.id}><figure><img src={product.image} alt={product.imageAlt} /></figure><div><h3>{product.name}</h3><p>A partir de {product.minimumQuantity.toLocaleString("pt-BR")} unidades · {money(product.price)} por unidade</p></div></a>)}</div></section>
+    <section className="process"><MotionBackdrop /><div className="shell process-inner"><h2>{content.processTitle}</h2><ol>{content.steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>)}</ol><a className="button button-secondary" href="/orcamento">{content.processCta}</a></div></section>
+  </main>;
 }

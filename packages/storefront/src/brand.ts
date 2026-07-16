@@ -26,7 +26,7 @@ export const hardwareBrand: BrandConfig = {
   channel: "ferragens",
   title: "Lenterne Ferragens",
   descriptor: "Componentes para produção e montagem",
-  headline: "Componentes direto da fábrica.",
+  headline: "Peças direto da fábrica.",
   intro: "Argolas, garras e clips metálicos para chaveiros, cordões e identificação. Fornecimento com condições para revenda, atacado e compras recorrentes.",
   primaryCta: "Ver catálogo técnico",
   switchLabel: "Ir para Brindes",

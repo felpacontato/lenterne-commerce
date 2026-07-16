@@ -1,1 +1,3 @@
-export default function Page() { return <main id="conteudo" className="quote-page shell"><header><div><h1>Mais de 10 anos transformando ideias em produtos.</h1></div><p>A Lenterne fabrica produtos plásticos, acessórios para cordões de crachá, ferragens e brindes personalizados em Taboão da Serra. A produção própria permite atender empresas, eventos, revendedores e compras no atacado com acompanhamento próximo em cada pedido.</p></header><section className="about-copy"><h2>Do produto à personalização.</h2><p>Canecas, copos, porta-crachás e cordões podem receber a identidade visual da empresa ou do evento. Antes da fabricação, a equipe confere as informações do pedido e orienta a aprovação da arte.</p></section></main>; }
+import { AboutPage, giftsBrand } from "@lenterne/storefront";
+
+export default function Page() { return <AboutPage brand={giftsBrand} />; }

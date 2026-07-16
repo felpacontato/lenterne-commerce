@@ -7,6 +7,8 @@ coverage/
 !.env.example
 output/playwright/
 .playwright-cli/
+.superdesign/tmp/
+.qa/
 *.log
 *.tsbuildinfo
 .DS_Store

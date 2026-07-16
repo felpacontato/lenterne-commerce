@@ -7,3 +7,4 @@ export * from "./cart";
 export * from "./site-shell";
 export * from "./neural-noise";
 export * from "./motion-backdrop";
+export * from "./about-page";

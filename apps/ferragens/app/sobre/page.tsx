@@ -1,1 +1,3 @@
-export default function Page() { return <main id="conteudo" className="quote-page shell"><header><div><h1>Componentes direto de quem conhece a produção.</h1></div><p>Há mais de 10 anos, a Lenterne fornece e fabrica acessórios para cordões de crachá, ferragens e produtos plásticos. A produção própria oferece flexibilidade para revenda, atacado e compras recorrentes.</p></header><section className="about-copy"><h2>Fabricação e desenvolvimento.</h2><p>Além dos produtos de linha, a empresa desenvolve projetos e moldes de injeção plástica e oferece serviço por hora-máquina, conforme a necessidade de cada produção.</p></section></main>; }
+import { AboutPage, hardwareBrand } from "@lenterne/storefront";
+
+export default function Page() { return <AboutPage brand={hardwareBrand} />; }

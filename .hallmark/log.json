@@ -2,6 +2,15 @@
   {
     "date": "2026-07-16",
     "scope": "app",
+    "macrostructure": "Unified Photographic Catalogue",
+    "theme": "custom",
+    "theme_axes": "neural-black / geometric-display / liquid-red",
+    "enrichment": "shared channel-aware home + editorial about pages",
+    "brief": "Unificação visual de Brindes e Ferragens e reconstrução das páginas institucionais"
+  },
+  {
+    "date": "2026-07-16",
+    "scope": "app",
     "macrostructure": "Photographic Catalogue + Technical Catalogue",
     "theme": "custom",
     "theme_axes": "neural-black / geometric-display / liquid-red",
