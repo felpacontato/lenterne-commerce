@@ -4,7 +4,7 @@ Sistema visual bloqueado para as duas plataformas. Todas as páginas devem ler e
 
 ## Genre
 
-Modern-minimal com duas vozes coordenadas: editorial/fotográfica para Brindes e técnica/catalogal para Ferragens.
+Modern-minimal escuro com duas vozes coordenadas: editorial/fotográfica para Brindes e técnica/catalogal para Ferragens. Preto industrial como base, produto luminoso e vermelho institucional como acento.
 
 ## Macrostructure family
 
@@ -15,15 +15,15 @@ Modern-minimal com duas vozes coordenadas: editorial/fotográfica para Brindes e
 
 ## Theme
 
-- `--color-paper`: oklch(98% 0.006 85)
-- `--color-paper-2`: oklch(94% 0.012 82)
-- `--color-ink`: oklch(20% 0.018 55)
-- `--color-ink-2`: oklch(43% 0.018 55)
-- `--color-rule`: oklch(84% 0.014 75)
+- `--color-paper`: oklch(13% 0.012 35)
+- `--color-paper-2`: oklch(17% 0.015 35)
+- `--color-ink`: oklch(96% 0.009 75)
+- `--color-ink-2`: oklch(76% 0.012 70)
+- `--color-rule`: oklch(31% 0.018 40)
 - `--color-accent`: oklch(55% 0.19 28)
 - `--color-accent-ink`: oklch(98% 0.006 85)
-- `--color-focus`: oklch(64% 0.16 245)
-- `--color-industrial`: oklch(31% 0.025 240)
+- `--color-focus`: oklch(78% 0.14 80)
+- `--color-industrial`: oklch(10% 0.012 240)
 
 Os valores são uma aproximação inicial da identidade observada. Devem ser recalibrados com os arquivos oficiais do logo antes da produção.
 
@@ -64,4 +64,3 @@ Composição, densidade, tratamento fotográfico, filtros e CTA principal de aco
 ## Exports
 
 Os tokens canônicos estão em `tokens.css` e `packages/ui/src/tokens.css`.
-

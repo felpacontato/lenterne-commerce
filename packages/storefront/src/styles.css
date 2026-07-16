@@ -42,11 +42,11 @@
 .product-1 { grid-row: span 2; }
 .product-1 figure { aspect-ratio: 4 / 5; }
 .product-2 figure, .product-3 figure { aspect-ratio: 16 / 8; }
-.process { background: var(--color-ink); color: var(--color-paper); }
+.process { background: var(--color-paper-3); color: var(--color-ink); }
 .process-inner { padding-block: var(--space-3xl); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2xl); align-items: start; }
 .process h2 { margin: 0; font: 700 var(--text-2xl) / 1 var(--font-display); letter-spacing: -.05em; }
 .process ol { margin: 0; padding: 0; list-style: none; }
-.process li { display: flex; gap: var(--space-md); padding: var(--space-md) 0; border-bottom: var(--rule-thin) solid color-mix(in oklch, var(--color-accent-ink) 35%, transparent); }
+.process li { display: flex; gap: var(--space-md); padding: var(--space-md) 0; border-bottom: var(--rule-thin) solid var(--color-rule); }
 .process li span { font-family: var(--font-mono); }
 .process .button { color: inherit; border-color: currentColor; justify-self: start; }
 
@@ -55,9 +55,9 @@
 .hardware-intro { padding-bottom: .5rem; }
 .hardware-intro p { margin: 0 0 var(--space-lg); color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
 .hardware-home .button-primary { background: var(--color-industrial); border-color: var(--color-industrial); }
-.spec-strip { background: var(--color-industrial); color: var(--color-paper); }
+.spec-strip { background: var(--color-industrial); color: var(--color-ink); }
 .spec-strip .shell { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.spec-strip span { padding: var(--space-md) var(--space-sm); border-left: var(--rule-thin) solid color-mix(in oklch, var(--color-paper) 24%, transparent); font: var(--text-xs) var(--font-mono); }
+.spec-strip span { padding: var(--space-md) var(--space-sm); border-left: var(--rule-thin) solid color-mix(in oklch, var(--color-ink) 24%, transparent); font: var(--text-xs) var(--font-mono); }
 .technical-catalog { padding-block: var(--space-3xl); display: grid; grid-template-columns: minmax(14rem, .45fr) minmax(0, 1.55fr); gap: var(--space-2xl); }
 .technical-catalog aside { position: sticky; top: var(--space-lg); align-self: start; }
 .technical-catalog h2 { font: 650 var(--text-xl) / 1.15 var(--font-display); }
@@ -71,9 +71,10 @@
 .technical-row dl { margin: 0; }
 .technical-row dl div { display: flex; justify-content: space-between; gap: var(--space-sm); }
 .technical-row dd { margin: 0; }
-.manufacturing { background: var(--color-paper-3); }
+.manufacturing { background: var(--color-industrial); }
 .manufacturing .shell { padding-block: var(--space-3xl); }
 .manufacturing h2 { max-width: 20ch; font: 700 var(--text-2xl) / 1 var(--font-display); letter-spacing: -.05em; }
+.manufacturing-copy { max-width: 60ch; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
 
 .catalog-page { padding-block: var(--space-2xl) var(--space-3xl); }
 .catalog-header h1 { max-width: 15ch; margin: var(--space-md) 0; font: 700 var(--text-display-s) / .95 var(--font-display); letter-spacing: -.055em; overflow-wrap: anywhere; }
@@ -137,6 +138,9 @@
 .quote-page form .button { justify-self: start; }
 .form-error { color: var(--color-error); }
 .form-success, .empty-cart { max-width: 45rem; padding-block: var(--space-2xl); }
+.about-copy { max-width: 62rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-xl); margin-top: var(--space-2xl); padding-block: var(--space-2xl); border-top: var(--rule-thin) solid var(--color-rule); }
+.about-copy h2 { margin: 0; font: 650 var(--text-xl) var(--font-display); }
+.about-copy p { margin: 0; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
 .cart-lines { margin-block: var(--space-xl); border-top: var(--rule-thin) solid var(--color-rule); }
 .cart-line { display: grid; grid-template-columns: 6rem minmax(0, 1fr) auto auto; gap: var(--space-md); align-items: center; padding-block: var(--space-md); border-bottom: var(--rule-thin) solid var(--color-rule); }
 .cart-line img { width: 6rem; aspect-ratio: 1; object-fit: cover; }
@@ -148,11 +152,11 @@
 .cart-summary p, .cart-summary .button, .cart-summary .text-action { grid-column: 1 / -1; }
 .cart-summary p { color: var(--color-ink-2); }
 
-.site-footer { background: var(--color-ink); color: var(--color-paper); }
-.footer-lead { padding-block: var(--space-3xl); border-bottom: var(--rule-thin) solid color-mix(in oklch, var(--color-paper) 20%, transparent); }
+.site-footer { background: var(--color-industrial); color: var(--color-ink); }
+.footer-lead { padding-block: var(--space-3xl); border-bottom: var(--rule-thin) solid color-mix(in oklch, var(--color-ink) 20%, transparent); }
 .footer-lead p { margin: 0 0 var(--space-md); font: 650 var(--text-2xl) var(--font-display); }
 .footer-lead a { font-size: var(--text-lg); text-decoration: underline; text-underline-offset: .4rem; }
-.footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); padding-block: var(--space-xl); color: color-mix(in oklch, var(--color-paper) 78%, transparent); font-size: var(--text-sm); }
+.footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xl); padding-block: var(--space-xl); color: color-mix(in oklch, var(--color-ink) 78%, transparent); font-size: var(--text-sm); }
 .footer-grid div { display: flex; flex-direction: column; gap: var(--space-xs); }
 .footer-grid p { margin: 0; line-height: 1.6; }
 
@@ -175,7 +179,7 @@
   .hero-collage { position: relative; inset: auto; height: 70vw; opacity: 1; order: -1; }
   .hero-collage img:first-child { inset: 0 15% 0 0; width: 75%; height: 100%; }
   .hero-collage img:last-child { right: 0; bottom: 8%; width: 42%; height: 50%; }
-  .occasion header, .process-inner, .hardware-hero, .technical-catalog, .product-detail, .customization, .quote-page > header { grid-template-columns: minmax(0, 1fr); }
+  .occasion header, .process-inner, .hardware-hero, .technical-catalog, .product-detail, .customization, .quote-page > header, .about-copy { grid-template-columns: minmax(0, 1fr); }
   .occasion-list, .spec-strip .shell { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .editorial-grid { grid-template-columns: minmax(0, 1fr); }
   .product-1 { grid-row: auto; }
