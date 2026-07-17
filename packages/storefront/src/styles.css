@@ -398,3 +398,9 @@ main, .site-footer { position: relative; z-index: 1; }
   .cart-line { grid-template-columns: 5rem minmax(0, 1fr); }
   .cart-line > strong, .cart-line > button { grid-column: 2; }
 }
+
+@media (min-width: 96rem) {
+  .shell { width: calc(100% - 2rem); max-width: none; }
+  .featured-products .section-head, .product-carousel { width: 100%; max-width: none; }
+  .carousel-product { flex-basis: calc((100% - (3 * var(--space-md))) / 4); }
+}
