@@ -38,18 +38,21 @@ main, .site-footer { position: relative; z-index: 1; }
 .hero-collage img:last-child { right: 0; bottom: 4%; width: 43%; height: 38%; border: .65rem solid var(--color-paper-2); }
 .hero-main-video { position: absolute; z-index: 2; inset: 0 0 0 60%; overflow: hidden; background: #0b0707; }
 .hero-main-video video { width: 100%; height: 100%; object-fit: cover; }
-.occasion { padding-block: var(--space-3xl); }
+.occasion { position: relative; width: calc(100% - clamp(1rem, 2vw, 2.5rem)); max-width: none; overflow: clip; padding: var(--space-3xl) clamp(1rem, 2vw, 2rem); }
 .occasion header { width: min(100%, 82rem); margin-inline: auto; text-align: center; }
 .occasion header p { width: min(100%, 54rem); margin: var(--space-md) auto 0; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.55; }
 .occasion h2 { max-width: 32ch; margin: 0 auto; font: 700 var(--text-2xl) / 1.02 var(--font-display); letter-spacing: -.045em; text-wrap: pretty; }
 .occasion-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-2xl); }
-.occasion-list article { min-width: 0; overflow: clip; border: var(--rule-thin) solid var(--color-rule); border-radius: var(--radius-lg); background: color-mix(in oklch, var(--color-paper-2) 78%, transparent); }
+.occasion-list article { min-width: 0; overflow: clip; border: var(--rule-thin) solid color-mix(in oklch, var(--color-accent) 24%, var(--color-rule)); border-radius: var(--radius-lg); background: transparent; box-shadow: 0 1.25rem 3rem color-mix(in oklch, #000 30%, transparent), 0 0 0 1px color-mix(in oklch, var(--color-accent) 7%, transparent); }
 .occasion-list figure { aspect-ratio: 4 / 3; margin: 0; overflow: clip; background: var(--color-paper-2); }
 .occasion-list img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-long) var(--ease-out); }
 .occasion-list article:hover img { transform: scale(1.035); }
-.occasion-list article > div { min-height: 6.5rem; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-md); padding: var(--space-md); border-top: var(--rule-thin) solid var(--color-rule); }
-.occasion-list span { color: var(--color-ink-2); font: var(--text-xs) var(--font-mono); }
-.occasion-list h3 { margin: 0; font: 650 var(--text-lg) / 1.15 var(--font-display); }
+.occasion-list article > div { position: relative; min-height: 7rem; overflow: clip; display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-md); padding: var(--space-md); border-top: 1px solid color-mix(in oklch, var(--color-accent) 48%, #54201d); background: linear-gradient(115deg, #100908 0%, #25100e 38%, #5a1d18 52%, #24100e 68%, #0d0808 100%); box-shadow: inset 0 1px color-mix(in oklch, var(--color-accent) 32%, transparent), inset 0 -1.5rem 3rem color-mix(in oklch, #000 32%, transparent); }
+.occasion-list article > div::before { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 0 38%, color-mix(in oklch, #fff 10%, transparent) 48%, transparent 58% 100%); opacity: .42; pointer-events: none; }
+.occasion-list article > div::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, color-mix(in oklch, #fff 3%, transparent) 0 1px, transparent 1px 3px); mix-blend-mode: soft-light; opacity: .3; pointer-events: none; }
+.occasion-list article > div > span, .occasion-list h3 { position: relative; z-index: 1; }
+.occasion-list article > div > span { color: color-mix(in oklch, var(--color-ink) 65%, var(--color-accent)); font: var(--text-xs) var(--font-mono); letter-spacing: .08em; }
+.occasion-list h3 { margin: 0; color: var(--color-ink); font: 650 var(--text-lg) / 1.15 var(--font-display); text-shadow: 0 1px .75rem color-mix(in oklch, #000 70%, transparent); }
 .section-head { display: flex; align-items: end; justify-content: space-between; gap: var(--space-lg); margin-bottom: var(--space-xl); }
 .section-head h2 { margin: 0; font: 700 var(--text-2xl) var(--font-display); letter-spacing: -.045em; }
 .section-head a { text-decoration: underline; text-underline-offset: .4rem; white-space: nowrap; }
