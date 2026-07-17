@@ -16,8 +16,18 @@ const showcase = [
 ];
 
 const content = {
-  brindes: { eyebrow: "Lenterne · fabricação própria", capabilities: ["Produção própria", "Personalização", "Conferência de arte", "Atendimento direto"], showcaseTitle: "Produtos pensados para acompanhar pessoas e marcas.", closing: "Um pedido bem produzido começa com uma conversa clara." },
-  ferragens: { eyebrow: "Lenterne · fabricação e fornecimento", capabilities: ["Atacado e revenda", "Compras recorrentes", "Moldes de injeção", "Hora-máquina"], showcaseTitle: "Componentes pensados para manter sua produção em movimento.", closing: "A peça certa mantém a sua produção em movimento." }
+  brindes: { eyebrow: "Lenterne · fabricação própria", capabilities: [
+    { title: "Produção própria", image: "/media/occasions/eventos-corporativos.png" },
+    { title: "Personalização", image: "/media/occasions/acoes-promocionais.png" },
+    { title: "Conferência de arte", image: "/media/occasions/festas-lembrancas.png" },
+    { title: "Atendimento direto", image: "/media/occasions/identificacao-equipes.png" }
+  ], showcaseTitle: "Produtos pensados para acompanhar pessoas e marcas.", closing: "Um pedido bem produzido começa com uma conversa clara." },
+  ferragens: { eyebrow: "Lenterne · fabricação e fornecimento", capabilities: [
+    { title: "Atacado e revenda", image: "/media/occasions/atacado-revenda.png" },
+    { title: "Compras recorrentes", image: "/media/occasions/argolas-chaveiro.png" },
+    { title: "Moldes de injeção", image: "/media/occasions/garras-cordao.png" },
+    { title: "Hora-máquina", image: "/media/occasions/clips-conjuntos.png" }
+  ], showcaseTitle: "Componentes pensados para manter sua produção em movimento.", closing: "A peça certa mantém a sua produção em movimento." }
 } as const;
 
 export function AboutPage({ brand }: { brand: BrandConfig }) {
@@ -27,7 +37,7 @@ export function AboutPage({ brand }: { brand: BrandConfig }) {
   return <main id="conteudo" className={`about-page ${brand.channel}-about`}>
     <section className="about-hero"><MotionBackdrop /><div className="shell about-hero-inner"><div><p className="eyebrow">{copy.eyebrow}</p><h1>Mais de 10 anos transformando ideias em produtos.</h1><p>Qualidade, personalização e atendimento próximo, da escolha do produto à entrega final.</p><a className="button button-primary" href="/orcamento">Falar com a Lenterne <Arrow /></a></div><figure><img src={items[0].image} alt={items[0].imageAlt} /></figure></div></section>
     <section className="about-story shell" id="quem-somos"><p className="eyebrow">Quem somos</p><div><h2>Experiência de fábrica em cada pedido.</h2><p>O grupo Lenterne se consolidou no fornecimento e na fabricação de acessórios para cordões de crachá, ferragens e produtos plásticos. Em Taboão da Serra, combinamos experiência, tecnologia e acompanhamento direto para atender empresas, eventos, revendas e operações de produção.</p></div></section>
-    <section className="about-capabilities shell" id="capacidades" aria-label="Capacidades da Lenterne">{copy.capabilities.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong></div>)}</section>
+    <section className="about-capabilities shell" id="capacidades" aria-label="Capacidades da Lenterne">{copy.capabilities.map((item, index) => <article key={item.title}><figure><img src={item.image} alt="" loading="lazy" /></figure><div><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.title}</strong></div></article>)}</section>
     <section className="about-values shell">{values.map((value, index) => <article key={value.title} className={index % 2 ? "reverse" : ""}><figure><img src={value.image} alt={`${value.title} da Lenterne`} loading="lazy" /></figure><div><p className="eyebrow">Nosso compromisso</p><h2>{value.title}</h2><p>{value.text}</p></div></article>)}</section>
     <section className="about-showcase shell"><header><p className="eyebrow">O que produzimos</p><h2>{copy.showcaseTitle}</h2></header><div>{channelShowcase.map((item) => <article key={item.title}><figure><img src={item.image} alt={item.title} loading="lazy" /></figure><div><span>{item.tag}</span><h3>{item.title}</h3><p>{item.text}</p><a href="/catalogo">Ver no catálogo <Arrow /></a></div></article>)}</div></section>
     <section className="about-closing"><MotionBackdrop /><div className="shell"><h2>{copy.closing}</h2><a className="button button-secondary" href="/orcamento">Começar uma conversa <Arrow /></a></div></section>

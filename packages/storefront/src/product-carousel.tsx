@@ -9,6 +9,20 @@ export function ProductCarousel({ products }: { products: Product[] }) {
   function move(direction: -1 | 1) {
     const element = track.current;
     if (!element) return;
+    const edgeTolerance = 8;
+    const atStart = element.scrollLeft <= edgeTolerance;
+    const atEnd = element.scrollLeft + element.clientWidth >= element.scrollWidth - edgeTolerance;
+
+    if (direction === 1 && atEnd) {
+      element.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (direction === -1 && atStart) {
+      element.scrollTo({ left: element.scrollWidth, behavior: "smooth" });
+      return;
+    }
+
     element.scrollBy({ left: direction * element.clientWidth * 0.82, behavior: "smooth" });
   }
 
