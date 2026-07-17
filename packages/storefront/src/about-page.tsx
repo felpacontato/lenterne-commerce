@@ -17,16 +17,16 @@ const showcase = [
 
 const content = {
   brindes: { eyebrow: "Lenterne · fabricação própria", capabilities: [
-    { title: "Produção própria", image: "/media/occasions/eventos-corporativos.png" },
-    { title: "Personalização", image: "/media/occasions/acoes-promocionais.png" },
-    { title: "Conferência de arte", image: "/media/occasions/festas-lembrancas.png" },
-    { title: "Atendimento direto", image: "/media/occasions/identificacao-equipes.png" }
+    { title: "Produção própria", image: "/media/about/producao-propria.png" },
+    { title: "Personalização", image: "/media/about/personalizacao.png" },
+    { title: "Conferência de arte", image: "/media/about/conferencia-arte.png" },
+    { title: "Atendimento direto", image: "/media/about/atendimento-direto.png" }
   ], showcaseTitle: "Produtos pensados para acompanhar pessoas e marcas.", closing: "Um pedido bem produzido começa com uma conversa clara." },
   ferragens: { eyebrow: "Lenterne · fabricação e fornecimento", capabilities: [
-    { title: "Atacado e revenda", image: "/media/occasions/atacado-revenda.png" },
-    { title: "Compras recorrentes", image: "/media/occasions/argolas-chaveiro.png" },
-    { title: "Moldes de injeção", image: "/media/occasions/garras-cordao.png" },
-    { title: "Hora-máquina", image: "/media/occasions/clips-conjuntos.png" }
+    { title: "Atacado e revenda", image: "/media/about/atacado-revenda.png" },
+    { title: "Compras recorrentes", image: "/media/about/compras-recorrentes.png" },
+    { title: "Moldes de injeção", image: "/media/about/moldes-injecao.png" },
+    { title: "Hora-máquina", image: "/media/about/hora-maquina.png" }
   ], showcaseTitle: "Componentes pensados para manter sua produção em movimento.", closing: "A peça certa mantém a sua produção em movimento." }
 } as const;
 
