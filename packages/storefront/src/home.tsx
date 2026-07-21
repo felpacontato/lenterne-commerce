@@ -1,66 +1,170 @@
 import { Arrow } from "@lenterne/ui";
 import type { Product } from "@lenterne/catalog";
+import { money } from "@lenterne/catalog";
 import type { BrandConfig } from "./brand";
 import { MotionBackdrop } from "./motion-backdrop";
-import { ProductCarousel } from "./product-carousel";
 import { loadCatalog } from "./runtime-catalog";
 
-const channelContent = {
+const content = {
   brindes: {
-    kicker: "Brindes personalizados direto da fábrica",
-    hero: "Produtos que fazem sua marca circular.",
-    heroBody: "Copos, canecas, identificação e acessórios produzidos para eventos, empresas e ações promocionais.",
-    heroCta: "Comprar brindes",
-    shelf: "Mais procurados para personalizar",
-    categoryTitle: "Compre por categoria",
-    categories: ["Copos", "Canecas", "Identificação", "Cordões", "Presentes", "Sem personalização"],
-    promoTitle: "Sua arte aplicada com acompanhamento de fábrica.",
-    promoBody: "Envie sua identidade, aprove a prévia e acompanhe o pedido até a produção.",
-    companyTitle: "Há mais de 10 anos transformando ideias em produtos.",
-    companyBody: "Produção própria em Taboão da Serra, atendimento direto e soluções para pedidos de diferentes escalas.",
-    uses: ["Eventos e feiras", "Equipes e empresas", "Festas e lembranças", "Campanhas promocionais"]
+    label: "Brindes e personalizados",
+    hero: "Lenterne Brindes",
+    deck: "Catalogo comercial para eventos, empresas e acoes de marca com producao propria em Taboao da Serra.",
+    primary: "Montar pedido",
+    secondary: "Ver categorias",
+    departments: ["Copos", "Canecas", "Porta-cracha", "Cordoes", "Sem personalizacao", "Eventos"],
+    proof: ["Pedido minimo visivel", "Arte aprovada antes da producao", "Atendimento por WhatsApp", "Lotes para empresas"],
+    bandTitle: "Da lembranca ao evento corporativo, tudo precisa parecer feito para aquela marca.",
+    bandCopy: "A V3 organiza os produtos como vitrine de atacado: escolha rapida, categorias claras e caminho curto para orcamento.",
+    featureTitle: "Produtos que resolvem evento, equipe e campanha.",
+    featureCopy: "Itens plasticos, identificacao e presentes com fotos, descricoes e condicoes comerciais prontas para adaptar ao cliente."
   },
   ferragens: {
-    kicker: "Componentes e ferragens para produção",
-    hero: "Estoque técnico para sua operação continuar.",
-    heroBody: "Argolas, garras e clips com fornecimento direto, compra em volume e atendimento para demandas recorrentes.",
-    heroCta: "Comprar ferragens",
-    shelf: "Componentes mais solicitados",
-    categoryTitle: "Encontre pela aplicação",
-    categories: ["Argolas 13 mm", "Argolas 16 mm", "Argolas 19 mm", "Garras", "Clips", "Atacado"],
-    promoTitle: "Medida, volume e prazo confirmados antes da compra.",
-    promoBody: "Solicite uma cotação técnica para lotes, recorrência e condições de revenda.",
-    companyTitle: "Fornecimento industrial com atendimento próximo.",
-    companyBody: "Componentes para chaveiros, cordões, crachás e linhas de montagem com controle de medidas e disponibilidade.",
-    uses: ["Montagem de chaveiros", "Produção de cordões", "Identificação", "Atacado e revenda"]
+    label: "Ferragens e componentes",
+    hero: "Lenterne Ferragens",
+    deck: "Catalogo tecnico para argolas, garras, clips e componentes de montagem com compra em volume.",
+    primary: "Cotacao tecnica",
+    secondary: "Aplicacoes",
+    departments: ["Argolas", "Garras", "Clips", "Conjuntos", "Atacado", "Recorrencia"],
+    proof: ["Medidas destacadas", "Pacotes de 1.000 unidades", "Estoque tecnico", "Compra recorrente"],
+    bandTitle: "Componente certo, medida certa e menos atrito na producao.",
+    bandCopy: "A V3 deixa ferragens com cara de catalogo tecnico: leitura rapida, aplicacao evidente e foco em volume.",
+    featureTitle: "Pecas para manter sua linha de montagem em movimento.",
+    featureCopy: "Argolas, garras e clips organizados por medida, pacote, aplicacao e disponibilidade."
   }
 } as const;
 
-function categoryProducts(products: Product[], labels: readonly string[]) {
-  return labels.map((label, index) => ({ label, product: products[index % products.length] }));
+function pick(products: Product[], index: number) {
+  return products[index % products.length];
+}
+
+function ProductRow({ product, index }: { product: Product; index: number }) {
+  return (
+    <a className="v3-product-row" href={`/produto/${product.slug}`}>
+      <span>{String(index + 1).padStart(2, "0")}</span>
+      <img src={product.image} alt={product.imageAlt} loading="lazy" />
+      <div>
+        <small>{product.category}</small>
+        <strong>{product.name}</strong>
+      </div>
+      <em>{money(product.price)}</em>
+      <Arrow />
+    </a>
+  );
 }
 
 export async function HomePage({ brand }: { brand: BrandConfig }) {
   const products = await loadCatalog(brand.channel);
-  const page = channelContent[brand.channel];
-  const categories = categoryProducts(products, page.categories);
-  return <main id="conteudo" className={`commerce-home ${brand.channel}`}>
-    <section className="commerce-hero">
-      <div className="hero-banner shell">
-        <div className="hero-banner-copy"><p className="eyebrow">{page.kicker}</p><h1>{page.hero}</h1><p>{page.heroBody}</p><div><a className="button button-primary" href="/catalogo">{page.heroCta} <Arrow /></a><a className="button button-ghost" href="/orcamento">Solicitar orçamento</a></div></div>
-        <div className="hero-banner-media"><video autoPlay muted loop playsInline preload="metadata" poster="/media/liquid-red-poster.jpg"><source src="/media/lenterne-original.mp4" type="video/mp4" /></video><span>Produção Lenterne</span></div>
-      </div>
-      <div className="commerce-benefits shell"><div><strong>Produção própria</strong><span>Atendimento direto da fábrica</span></div><div><strong>Pedido acompanhado</strong><span>Da escolha à aprovação da arte</span></div><div><strong>Compra em volume</strong><span>Condições para empresas e revenda</span></div><div><strong>Atendimento rápido</strong><span>WhatsApp e orçamento online</span></div></div>
-    </section>
+  const page = content[brand.channel];
+  const heroProduct = pick(products, 0);
+  const secondaryProduct = pick(products, 1);
+  const tertiaryProduct = pick(products, 2);
 
-    <section className="category-showcase shell"><div className="store-section-title"><div><p className="eyebrow">Navegue pela loja</p><h2>{page.categoryTitle}</h2></div><a href="/catalogo">Todas as categorias <Arrow /></a></div><div className="category-circles">{categories.map(({ label, product }) => <a key={label} href={`/catalogo?busca=${encodeURIComponent(label)}`}><figure><img src={product.image} alt="" /></figure><strong>{label}</strong><span>Ver produtos</span></a>)}</div></section>
+  return (
+    <main id="conteudo" className={`v3-home v3-${brand.channel}`}>
+      <section className="v3-hero">
+        <MotionBackdrop />
+        <div className="v3-hero-grid">
+          <aside className="v3-rail" aria-label="Departamentos">
+            <span>{page.label}</span>
+            {page.departments.map((item) => (
+              <a key={item} href={`/catalogo?busca=${encodeURIComponent(item)}`}>{item}</a>
+            ))}
+          </aside>
 
-    <section className="store-shelf shell"><div className="store-section-title"><div><p className="eyebrow">Destaques Lenterne</p><h2>{page.shelf}</h2></div><a href="/catalogo">Ver catálogo completo <Arrow /></a></div><ProductCarousel products={products.slice(0, 6)} /></section>
+          <div className="v3-hero-copy">
+            <p>{page.label}</p>
+            <h1>{page.hero}</h1>
+            <p>{page.deck}</p>
+            <div>
+              <a className="v3-button v3-button-red" href="/catalogo">{page.primary} <Arrow /></a>
+              <a className="v3-button v3-button-plain" href="/orcamento">{page.secondary}</a>
+            </div>
+          </div>
 
-    <section className="promo-grid shell"><article className="promo-primary"><MotionBackdrop /><div><p className="eyebrow">Atendimento personalizado</p><h2>{page.promoTitle}</h2><p>{page.promoBody}</p><a className="button button-light" href="/orcamento">Começar um orçamento <Arrow /></a></div></article><article className="promo-product"><img src={products[1]?.image ?? products[0]?.image} alt="" /><div><span>Compra facilitada</span><h3>Pedido mínimo e valor por unidade sempre visíveis.</h3><a href="/catalogo">Explorar catálogo <Arrow /></a></div></article></section>
+          <a className="v3-hero-product" href={`/produto/${heroProduct.slug}`}>
+            <img src={heroProduct.image} alt={heroProduct.imageAlt} />
+            <span>{heroProduct.category}</span>
+            <strong>{heroProduct.name}</strong>
+          </a>
+        </div>
+      </section>
 
-    <section className="use-store shell"><div className="store-section-title"><div><p className="eyebrow">Soluções por necessidade</p><h2>Encontre o produto certo para o seu projeto</h2></div></div><div>{page.uses.map((use, index) => <a href="/catalogo" key={use}><span>0{index + 1}</span><strong>{use}</strong><Arrow /></a>)}</div></section>
+      <section className="v3-departments">
+        <div className="v3-section-head">
+          <span>Entrada rapida</span>
+          <h2>Departamentos primeiro, produto depois.</h2>
+          <a href="/catalogo">Catalogo completo <Arrow /></a>
+        </div>
+        <div className="v3-department-grid">
+          {page.departments.map((item, index) => (
+            <a key={item} href={`/catalogo?busca=${encodeURIComponent(item)}`}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{item}</strong>
+              <img src={pick(products, index).image} alt="" loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </section>
 
-    <section className="factory-band"><div className="shell"><div><p className="eyebrow">Grupo Lenterne</p><h2>{page.companyTitle}</h2><p>{page.companyBody}</p><a className="button button-secondary" href="/sobre">Conhecer a Lenterne <Arrow /></a></div><figure><img src={brand.channel === "brindes" ? "/media/about/producao-propria.png" : "/media/about/moldes-injecao.png"} alt="Produção e experiência da Lenterne" loading="lazy" /></figure></div></section>
-  </main>;
+      <section className="v3-feature">
+        <div>
+          <span>Vitrine principal</span>
+          <h2>{page.featureTitle}</h2>
+          <p>{page.featureCopy}</p>
+        </div>
+        <div className="v3-feature-board">
+          <a className="v3-large-product" href={`/produto/${heroProduct.slug}`}>
+            <img src={heroProduct.image} alt={heroProduct.imageAlt} loading="lazy" />
+            <small>{heroProduct.category}</small>
+            <strong>{heroProduct.name}</strong>
+          </a>
+          <a className="v3-small-product" href={`/produto/${secondaryProduct.slug}`}>
+            <img src={secondaryProduct.image} alt={secondaryProduct.imageAlt} loading="lazy" />
+            <strong>{secondaryProduct.name}</strong>
+          </a>
+          <a className="v3-small-product" href={`/produto/${tertiaryProduct.slug}`}>
+            <img src={tertiaryProduct.image} alt={tertiaryProduct.imageAlt} loading="lazy" />
+            <strong>{tertiaryProduct.name}</strong>
+          </a>
+        </div>
+      </section>
+
+      <section className="v3-motion-band">
+        <MotionBackdrop />
+        <div>
+          <span>Movimento Lenterne</span>
+          <h2>{page.bandTitle}</h2>
+          <p>{page.bandCopy}</p>
+        </div>
+      </section>
+
+      <section className="v3-listing">
+        <div className="v3-section-head">
+          <span>Produtos selecionados</span>
+          <h2>Seis opcoes para abrir conversa comercial.</h2>
+          <a href="/catalogo">Ver tudo <Arrow /></a>
+        </div>
+        <div className="v3-product-table">
+          {products.slice(0, 6).map((product, index) => (
+            <ProductRow key={product.id} product={product} index={index} />
+          ))}
+        </div>
+      </section>
+
+      <section className="v3-proof">
+        {page.proof.map((item, index) => (
+          <article key={item}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong>{item}</strong>
+          </article>
+        ))}
+      </section>
+
+      <section className="v3-close">
+        <h2>Pronto para comparar com as outras versoes.</h2>
+        <a className="v3-button v3-button-red" href="/orcamento">Solicitar orcamento <Arrow /></a>
+      </section>
+    </main>
+  );
 }
