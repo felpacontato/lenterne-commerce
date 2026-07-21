@@ -1,0 +1,48 @@
+/* Hallmark · design-system: design.md · Lenterne Commerce */
+:root {
+  --color-paper: oklch(96.5% 0.008 78);
+  --color-paper-2: oklch(92.5% 0.012 72);
+  --color-paper-3: oklch(88.5% 0.018 58);
+  --color-ink: oklch(18% 0.018 38);
+  --color-ink-2: oklch(43% 0.018 42);
+  --color-muted: oklch(58% 0.015 48);
+  --color-rule: oklch(82% 0.018 55);
+  --color-accent: oklch(55% 0.19 28);
+  --color-accent-hover: oklch(48% 0.19 28);
+  --color-accent-ink: oklch(98% 0.006 85);
+  --color-focus: oklch(78% 0.14 80);
+  --color-industrial: oklch(94% 0.018 58);
+  --color-industrial-2: oklch(83% 0.035 38);
+  --color-success: oklch(72% 0.14 145);
+  --color-error: oklch(68% 0.19 28);
+  --font-display: "Manrope", "Arial", sans-serif;
+  --font-body: "Inter", "Arial", sans-serif;
+  --font-mono: "IBM Plex Mono", "Consolas", monospace;
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 7rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: clamp(2.1rem, 4vw, 4.5rem);
+  --text-display: clamp(3rem, 7.5vw, 8rem);
+  --text-display-s: clamp(2.6rem, 5.7vw, 6rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short: 160ms;
+  --dur-medium: 320ms;
+  --dur-long: 700ms;
+  --radius-sm: 0.35rem;
+  --radius-md: 0.75rem;
+  --radius-pill: 999px;
+  --rule-thin: 1px;
+}

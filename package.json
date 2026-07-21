@@ -1,0 +1,21 @@
+{
+  "name": "lenterne-v3-commerce",
+  "version": "3.0.0",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev:brindes": "npm run dev -w @lenterne/brindes",
+    "dev:ferragens": "npm run dev -w @lenterne/ferragens",
+    "dev:admin": "npm run dev -w @lenterne/admin",
+    "dev:api": "npm run dev -w @lenterne/api",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:generate": "npm run generate -w @lenterne/database",
+    "db:migrate": "npm run migrate -w @lenterne/database",
+    "db:seed": "npm run seed -w @lenterne/database"
+  },
+  "devDependencies": { "postcss": "8.5.10" },
+  "engines": { "node": ">=22" },
+  "overrides": { "postcss": "8.5.10", "next@16.2.10": { "postcss": "8.5.10" } }
+}

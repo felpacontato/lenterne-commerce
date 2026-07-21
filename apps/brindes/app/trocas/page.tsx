@@ -1,0 +1,1 @@
+export default function Page() { return <main id="conteudo" className="quote-page shell"><header><div><h1>Trocas e devoluções.</h1></div><p>Regras definitivas serão publicadas após validação jurídica, incluindo tratamento específico para itens produzidos sob personalização.</p></header></main>; }

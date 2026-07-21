@@ -1,0 +1,17 @@
+node_modules/
+.next/
+dist/
+coverage/
+.env
+.env.local
+!.env.example
+output/playwright/
+.playwright-cli/
+.superdesign/tmp/
+.qa/
+.data/
+*.log
+*.tsbuildinfo
+.DS_Store
+
+.vercel
