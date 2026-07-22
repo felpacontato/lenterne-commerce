@@ -162,6 +162,7 @@ export async function HomePage({ brand }: { brand: BrandConfig }) {
       </section>
 
       <section className="v3-close">
+        <MotionBackdrop />
         <h2>Pronto para comparar com as outras versoes.</h2>
         <a className="v3-button v3-button-red" href="/orcamento">Solicitar orcamento <Arrow /></a>
       </section>
