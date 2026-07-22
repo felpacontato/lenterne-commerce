@@ -2746,3 +2746,331 @@ body {
 }
 
 /* FIM MENU MAIOR E VITRINE BRINDES V3 */
+
+/* HEADER FINAL V3 COM BUSCA */
+
+/*
+  Desktop:
+  mantém logo + nome + busca + links + Conta + Pedido
+  na mesma linha.
+*/
+@media (min-width: 1181px) {
+  .v3-header-inner {
+    width: min(1760px, calc(100vw - 32px)) !important;
+
+    grid-template-columns:
+      auto
+      minmax(170px, 275px)
+      minmax(0, 1fr)
+      auto
+      auto !important;
+
+    gap: clamp(8px, 0.9vw, 17px) !important;
+  }
+
+  .v3-header .v3-brand {
+    min-width: 0;
+    gap: 10px !important;
+  }
+
+  .v3-header .brand-logo-official {
+    min-width: 118px;
+    height: 46px;
+    padding: 7px 11px;
+  }
+
+  .v3-header .v3-brand > span {
+    display: inline !important;
+    white-space: nowrap;
+
+    font-size: 0.67rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+  .v3-header .v3-search {
+    display: grid !important;
+
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .v3-header nav {
+    display: flex !important;
+
+    min-width: 0;
+    justify-content: flex-end !important;
+
+    gap: clamp(8px, 0.75vw, 14px) !important;
+
+    font-size: clamp(
+      0.73rem,
+      0.78vw,
+      0.81rem
+    ) !important;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .v3-header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .v3-header nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .v3-header .v3-actions {
+    display: flex !important;
+
+    flex: 0 0 auto;
+    gap: 12px !important;
+
+    font-size: 0.78rem !important;
+    white-space: nowrap;
+  }
+
+  .v3-header .v3-menu {
+    display: none !important;
+  }
+}
+
+
+/*
+  Zoom intermediário:
+  a busca continua aparecendo e os links continuam legíveis.
+*/
+@media (min-width: 1001px) and (max-width: 1180px) {
+  .v3-header-inner {
+    width: calc(100vw - 24px) !important;
+
+    grid-template-columns:
+      auto
+      minmax(135px, 175px)
+      minmax(0, 1fr)
+      auto
+      auto !important;
+
+    gap: 6px !important;
+    min-height: 76px !important;
+  }
+
+  .v3-header .brand-logo-official {
+    min-width: 96px;
+    height: 42px;
+    padding: 6px 9px;
+  }
+
+  .v3-header .v3-brand {
+    gap: 7px !important;
+  }
+
+  .v3-header .v3-brand > span {
+    display: inline !important;
+
+    font-size: 0.60rem !important;
+    letter-spacing: 0.11em !important;
+  }
+
+  .v3-header .v3-search {
+    display: grid !important;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .v3-header .v3-search input {
+    min-width: 0;
+    font-size: 0.82rem;
+  }
+
+  .v3-header nav {
+    display: flex !important;
+
+    min-width: 0;
+    justify-content: flex-end !important;
+
+    gap: 6px !important;
+
+    font-size: 0.70rem !important;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .v3-header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .v3-header nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .v3-header .v3-actions {
+    display: flex !important;
+
+    flex: 0 0 auto;
+    gap: 7px !important;
+
+    font-size: 0.71rem !important;
+    white-space: nowrap;
+  }
+
+  .v3-header .v3-menu {
+    display: none !important;
+  }
+}
+
+
+/*
+  Tela realmente estreita:
+  busca permanece visível em uma segunda linha.
+*/
+@media (min-width: 761px) and (max-width: 1000px) {
+  .v3-header-inner {
+    width: calc(100vw - 24px) !important;
+
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto
+      auto !important;
+
+    grid-template-areas:
+      "brand empty actions menu"
+      "search search search search";
+
+    gap: 10px 12px !important;
+
+    min-height: 126px !important;
+    padding-block: 10px;
+  }
+
+  .v3-header .v3-brand {
+    grid-area: brand;
+  }
+
+  .v3-header .v3-search {
+    grid-area: search;
+
+    display: grid !important;
+
+    width: 100%;
+    height: 40px;
+  }
+
+  .v3-header nav {
+    display: none !important;
+  }
+
+  .v3-header nav.open {
+    position: absolute;
+    z-index: 300;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0 !important;
+    padding: 12px;
+
+    background: var(--v3-paper);
+    border: 1px solid var(--v3-line);
+
+    box-shadow: 0 20px 45px rgba(23, 22, 21, 0.18);
+  }
+
+  .v3-header nav.open a {
+    min-height: 46px;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid var(--v3-line);
+
+    font-size: 0.78rem !important;
+  }
+
+  .v3-header .v3-actions {
+    grid-area: actions;
+
+    display: flex !important;
+    gap: 10px !important;
+
+    font-size: 0.76rem !important;
+  }
+
+  .v3-header .v3-menu {
+    grid-area: menu;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding-inline: 14px;
+
+    border: 1px solid var(--v3-line);
+    background: white;
+  }
+}
+
+
+/* Celular: mantém a busca abaixo do logo */
+@media (max-width: 760px) {
+  .v3-header-inner {
+    width: calc(100vw - 24px) !important;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto !important;
+
+    grid-template-areas:
+      "brand menu"
+      "search search";
+
+    gap: 10px !important;
+
+    min-height: 122px !important;
+    padding-block: 10px;
+  }
+
+  .v3-header .v3-brand {
+    grid-area: brand;
+  }
+
+  .v3-header .v3-search {
+    grid-area: search;
+
+    display: grid !important;
+
+    width: 100%;
+    height: 40px;
+  }
+
+  .v3-header .v3-actions {
+    display: none !important;
+  }
+
+  .v3-header .v3-menu {
+    grid-area: menu;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .v3-header nav.open {
+    top: 122px !important;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* FIM HEADER FINAL V3 COM BUSCA */
