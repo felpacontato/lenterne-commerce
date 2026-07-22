@@ -1826,3 +1826,268 @@ body {
 }
 
 /* FIM CARDS V3 REFINADOS */
+
+/* RESPONSIVO V3 SEM QUEBRAR NO ZOOM */
+
+.v3-header-inner {
+  position: relative;
+}
+
+.v3-header nav a,
+.v3-actions a {
+  white-space: nowrap;
+}
+
+/*
+  Quando a largura util diminui pelo zoom,
+  primeiro removemos somente a busca.
+*/
+@media (max-width: 1760px) and (min-width: 1281px) {
+  .v3-header-inner {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto !important;
+
+    gap: clamp(12px, 1.3vw, 22px) !important;
+  }
+
+  .v3-search {
+    display: none !important;
+  }
+
+  .v3-header nav {
+    justify-content: flex-end !important;
+    gap: clamp(9px, 0.9vw, 16px) !important;
+    font-size: clamp(0.68rem, 0.72vw, 0.76rem) !important;
+  }
+
+  .v3-actions {
+    gap: 13px !important;
+  }
+}
+
+
+/*
+  Antes dos links se sobreporem, o menu completo
+  vira um menu expansivel.
+*/
+@media (max-width: 1280px) {
+  .v3-header-inner {
+    min-height: 72px;
+
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto
+      auto !important;
+
+    gap: 12px !important;
+  }
+
+  .v3-search {
+    display: none !important;
+  }
+
+  .v3-header nav {
+    display: none !important;
+  }
+
+  .v3-header nav.open {
+    position: absolute;
+    z-index: 200;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 0 !important;
+    padding: 12px;
+
+    background: rgba(245, 244, 241, 0.99);
+    border: 1px solid var(--v3-line);
+
+    box-shadow:
+      0 20px 45px rgba(23, 22, 21, 0.16);
+
+    backdrop-filter: blur(18px);
+  }
+
+  .v3-header nav.open a {
+    display: flex;
+    align-items: center;
+
+    min-height: 48px;
+    padding: 10px 14px;
+
+    border-bottom: 1px solid var(--v3-line);
+
+    font-size: 0.78rem;
+  }
+
+  .v3-header nav.open a:hover {
+    color: var(--v3-red);
+    background: rgba(201, 45, 37, 0.06);
+  }
+
+  .v3-actions {
+    display: flex !important;
+    gap: 12px !important;
+  }
+
+  .v3-menu {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 14px;
+
+    border: 1px solid var(--v3-line);
+    background: white;
+
+    color: var(--v3-ink);
+    cursor: pointer;
+  }
+
+
+  /*
+    Mantem o hero com a mesma estrutura do desktop,
+    inclusive o menu lateral.
+  */
+  .v3-home .v3-hero-grid {
+    grid-template-columns:
+      clamp(110px, 13vw, 150px)
+      minmax(240px, 1fr)
+      minmax(250px, 34vw) !important;
+
+    gap: clamp(12px, 2vw, 24px) !important;
+  }
+
+  .v3-home .v3-rail {
+    display: flex !important;
+    gap: 9px !important;
+    padding-right: 12px !important;
+  }
+
+  .v3-home .v3-rail span {
+    font-size: 0.57rem;
+  }
+
+  .v3-home .v3-rail a {
+    font-size: 0.72rem;
+  }
+
+  .v3-home .v3-hero-copy h1 {
+    font-size: clamp(2.55rem, 4.5vw, 3.7rem) !important;
+  }
+
+  .v3-home .v3-hero-copy > p:not(:first-child) {
+    font-size: 0.76rem !important;
+  }
+
+  .v3-home .v3-hero-product {
+    width: 100%;
+    max-width: 390px;
+  }
+
+
+  /*
+    Continua com seis departamentos em uma linha.
+    Em telas realmente estreitas, a linha pode ser
+    arrastada horizontalmente, em vez de virar 3x2.
+  */
+  .v3-home .v3-department-grid {
+    grid-template-columns:
+      repeat(6, minmax(145px, 1fr)) !important;
+
+    gap: 10px !important;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+
+    padding-bottom: 8px;
+  }
+
+  .v3-home .v3-department-grid > a {
+    grid-template-columns:
+      34px
+      minmax(0, 1fr) !important;
+
+    grid-template-rows:
+      36px
+      125px !important;
+
+    gap: 8px !important;
+    padding: 11px !important;
+  }
+
+  .v3-home .v3-department-grid > a > span {
+    width: 32px;
+    height: 32px;
+    font-size: 0.62rem;
+  }
+
+  .v3-home .v3-department-grid > a > strong {
+    font-size: 0.86rem;
+  }
+
+  .v3-home .v3-department-grid > a > img {
+    height: 125px !important;
+  }
+
+  .v3-home .v3-feature {
+    grid-template-columns:
+      minmax(220px, 270px)
+      minmax(0, 1fr) !important;
+
+    gap: clamp(24px, 4vw, 50px) !important;
+  }
+
+  .v3-home .v3-feature > div:first-child {
+    position: sticky !important;
+    top: 96px;
+  }
+}
+
+
+/* Celular de verdade */
+@media (max-width: 760px) {
+  .v3-header-inner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto !important;
+  }
+
+  .v3-actions {
+    display: none !important;
+  }
+
+  .v3-header nav.open {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .v3-brand > span:last-child {
+    display: none;
+  }
+
+  .v3-home .v3-hero-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .v3-home .v3-rail {
+    display: none !important;
+  }
+
+  .v3-home .v3-feature {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .v3-home .v3-feature > div:first-child {
+    position: static !important;
+  }
+}
+
+/* FIM RESPONSIVO V3 SEM QUEBRAR NO ZOOM */
