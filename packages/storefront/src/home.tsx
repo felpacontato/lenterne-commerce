@@ -83,7 +83,7 @@ export async function HomePage({ brand }: { brand: BrandConfig }) {
           </div>
 
           <a className="v3-hero-product" href={`/produto/${heroProduct.slug}`}>
-            <img src={heroProduct.image} alt={heroProduct.imageAlt} />
+            <video className="v3-hero-video" autoPlay muted loop playsInline preload="metadata" poster="/media/liquid-red-poster.jpg" aria-label="Produtos e producao da Lenterne em movimento"><source src="/media/lenterne-original.mp4" type="video/mp4" /></video>
             <span>{heroProduct.category}</span>
             <strong>{heroProduct.name}</strong>
           </a>
