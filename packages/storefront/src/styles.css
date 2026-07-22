@@ -1361,3 +1361,115 @@ body {
   box-shadow: 0 2rem 5rem #00000061;
 }
 /* Fim video no card principal do hero V3 */
+
+/* CORRECAO DEFINITIVA HERO V3 */
+@media (min-width: 761px) {
+  .v3-home .v3-hero,
+  .v3-home .v3-hero-grid {
+    height: 330px !important;
+    min-height: 330px !important;
+    max-height: 330px !important;
+  }
+
+  .v3-home .v3-hero-copy {
+    padding-block: 6px !important;
+  }
+
+  .v3-home .v3-hero-copy h1 {
+    margin: 6px 0 9px !important;
+    font-size: clamp(2.9rem, 4vw, 3.8rem) !important;
+    line-height: 0.84 !important;
+  }
+
+  .v3-home .v3-hero-copy > p:not(:first-child) {
+    max-width: 500px;
+    font-size: 0.82rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .v3-home .v3-hero-copy > div {
+    margin-top: 12px !important;
+  }
+
+  .v3-home .v3-button {
+    min-height: 39px !important;
+    padding-inline: 16px !important;
+  }
+
+  .v3-home .v3-rail {
+    gap: 11px !important;
+    padding-right: 18px;
+  }
+
+  .v3-home .v3-hero-product {
+    display: block !important;
+    width: 100%;
+    max-width: 480px;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9;
+    align-self: center !important;
+    justify-self: end;
+    margin: 0 !important;
+    overflow: hidden;
+    background: #0b0707;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.38);
+  }
+
+  .v3-home .v3-hero-product .v3-hero-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: none;
+  }
+
+  .v3-home .v3-hero-product > span,
+  .v3-home .v3-hero-product > strong {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1181px) {
+  .v3-home .v3-hero-grid {
+    grid-template-columns:
+      160px
+      minmax(0, 1fr)
+      minmax(360px, 480px) !important;
+
+    gap: clamp(20px, 3vw, 46px) !important;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .v3-home .v3-hero-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(320px, 440px) !important;
+
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .v3-home .v3-hero-product {
+    display: block !important;
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    margin: 0 !important;
+    overflow: hidden;
+  }
+
+  .v3-home .v3-hero-product .v3-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .v3-home .v3-hero-product > span,
+  .v3-home .v3-hero-product > strong {
+    display: none !important;
+  }
+}
+/* FIM CORRECAO DEFINITIVA HERO V3 */
