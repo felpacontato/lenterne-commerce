@@ -1474,12 +1474,12 @@ body {
 }
 /* FIM CORRECAO DEFINITIVA HERO V3 */
 
-/* FADE TRANSPARENTE VIDEO V3 */
+/* FADE UNIFORME VIDEO V3 */
 .v3-home .v3-hero-product {
   position: relative;
+  overflow: visible !important;
   background: transparent !important;
   box-shadow: none !important;
-  overflow: visible !important;
 }
 
 .v3-home .v3-hero-product::before,
@@ -1496,29 +1496,46 @@ body {
   background: transparent !important;
   box-shadow: none !important;
 
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0.95) 60%,
-    rgba(0, 0, 0, 0.68) 72%,
-    rgba(0, 0, 0, 0.30) 84%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 14%,
+      #000 86%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 16%,
+      #000 84%,
+      transparent 100%
+    );
 
-  mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0.95) 60%,
-    rgba(0, 0, 0, 0.68) 72%,
-    rgba(0, 0, 0, 0.30) 84%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 14%,
+      #000 86%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 16%,
+      #000 84%,
+      transparent 100%
+    );
+
+  mask-composite: intersect;
 
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
-/* FIM FADE TRANSPARENTE VIDEO V3 */
+/* FIM FADE UNIFORME VIDEO V3 */
