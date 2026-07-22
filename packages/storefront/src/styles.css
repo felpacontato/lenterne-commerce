@@ -2091,3 +2091,211 @@ body {
 }
 
 /* FIM RESPONSIVO V3 SEM QUEBRAR NO ZOOM */
+
+/* HEADER V3 ORIGINAL SEM SOBREPOSICAO */
+
+/*
+  Mantém exatamente:
+  logo + nome + busca + links + Conta + Pedido
+*/
+.v3-header-inner {
+  position: relative;
+
+  grid-template-columns:
+    auto
+    minmax(180px, 300px)
+    minmax(0, 1fr)
+    auto !important;
+
+  gap: clamp(10px, 1.2vw, 22px) !important;
+}
+
+.v3-header .v3-brand {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.v3-header .v3-search {
+  display: grid !important;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+}
+
+.v3-header nav {
+  display: flex !important;
+  min-width: 0;
+
+  justify-content: flex-end !important;
+
+  gap: clamp(8px, 0.85vw, 16px) !important;
+
+  font-size: clamp(
+    0.64rem,
+    0.72vw,
+    0.76rem
+  ) !important;
+}
+
+.v3-header nav a {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.v3-header .v3-actions {
+  display: flex !important;
+  flex: 0 0 auto;
+
+  gap: clamp(8px, 0.8vw, 14px) !important;
+
+  font-size: clamp(
+    0.66rem,
+    0.72vw,
+    0.76rem
+  ) !important;
+
+  white-space: nowrap;
+}
+
+.v3-header .v3-menu {
+  display: none !important;
+}
+
+
+/*
+  Zoom ou tela intermediária:
+  continua com o MESMO menu do print,
+  apenas mais compacto.
+*/
+@media (min-width: 1081px) and (max-width: 1500px) {
+  .v3-header-inner {
+    grid-template-columns:
+      auto
+      minmax(130px, 210px)
+      minmax(0, 1fr)
+      auto !important;
+
+    gap: 8px !important;
+  }
+
+  .v3-header .v3-brand {
+    gap: 8px !important;
+  }
+
+  .v3-header .brand-logo-official {
+    min-width: 108px;
+    height: 44px;
+    padding: 6px 10px;
+  }
+
+  .v3-header .v3-brand > span {
+    font-size: 0.60rem !important;
+    letter-spacing: 0.13em !important;
+  }
+
+  .v3-header nav {
+    gap: 6px !important;
+    font-size: 0.62rem !important;
+  }
+
+  .v3-header .v3-actions {
+    gap: 7px !important;
+    font-size: 0.66rem !important;
+  }
+
+  .v3-header .v3-actions a:last-child span {
+    margin-left: 3px;
+  }
+}
+
+
+/*
+  Só vira botão Menu quando realmente não existe
+  espaço físico para todos os links.
+*/
+@media (max-width: 1080px) {
+  .v3-header-inner {
+    min-height: 72px;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto
+      auto !important;
+
+    gap: 10px !important;
+  }
+
+  .v3-header .v3-search {
+    display: none !important;
+  }
+
+  .v3-header nav {
+    display: none !important;
+  }
+
+  .v3-header nav.open {
+    position: absolute;
+    z-index: 200;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: grid !important;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 0 !important;
+    padding: 12px;
+
+    background: rgba(245, 244, 241, 0.99);
+    border: 1px solid var(--v3-line);
+
+    box-shadow:
+      0 20px 45px rgba(23, 22, 21, 0.16);
+  }
+
+  .v3-header nav.open a {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+
+    padding: 10px 14px;
+
+    border-bottom: 1px solid var(--v3-line);
+
+    font-size: 0.76rem !important;
+  }
+
+  .v3-header .v3-menu {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 0 14px;
+
+    border: 1px solid var(--v3-line);
+    background: white;
+
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 760px) {
+  .v3-header-inner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto !important;
+  }
+
+  .v3-header .v3-actions {
+    display: none !important;
+  }
+
+  .v3-header nav.open {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* FIM HEADER V3 ORIGINAL SEM SOBREPOSICAO */
