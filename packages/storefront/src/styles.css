@@ -2518,3 +2518,231 @@ body {
 }
 
 /* FIM AJUSTE VITRINE E FECHAMENTO V3 */
+
+/* MENU MAIOR E VITRINE BRINDES V3 */
+
+/* ==========================================================
+   MENU SUPERIOR: MAIOR, MAS SEM SOBREPOSICAO
+   ========================================================== */
+
+@media (min-width: 1501px) {
+  .v3-header-inner {
+    grid-template-columns:
+      auto
+      minmax(210px, 300px)
+      minmax(0, 1fr)
+      auto !important;
+
+    gap: clamp(12px, 1.25vw, 22px) !important;
+  }
+
+  .v3-header nav {
+    gap: clamp(10px, 0.9vw, 17px) !important;
+    font-size: 0.78rem !important;
+  }
+
+  .v3-header .v3-actions {
+    gap: 13px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .v3-header .v3-brand > span {
+    font-size: 0.68rem !important;
+  }
+}
+
+
+/* Zoom intermediario: mantém busca e menu visiveis */
+@media (min-width: 1281px) and (max-width: 1500px) {
+  .v3-header-inner {
+    grid-template-columns:
+      auto
+      minmax(145px, 210px)
+      minmax(0, 1fr)
+      auto !important;
+
+    gap: 9px !important;
+  }
+
+  .v3-header .v3-search {
+    display: grid !important;
+  }
+
+  .v3-header nav {
+    display: flex !important;
+    justify-content: flex-end !important;
+
+    gap: 8px !important;
+    font-size: 0.73rem !important;
+  }
+
+  .v3-header .v3-actions {
+    display: flex !important;
+
+    gap: 9px !important;
+    font-size: 0.73rem !important;
+  }
+
+  .v3-header .v3-brand {
+    gap: 9px !important;
+  }
+
+  .v3-header .v3-brand > span {
+    font-size: 0.64rem !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .v3-header .v3-menu {
+    display: none !important;
+  }
+}
+
+
+/* Largura menor: esconde apenas a busca para liberar espaco */
+@media (min-width: 1081px) and (max-width: 1280px) {
+  .v3-header-inner {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto !important;
+
+    gap: 9px !important;
+  }
+
+  .v3-header .v3-search {
+    display: none !important;
+  }
+
+  .v3-header nav {
+    display: flex !important;
+    justify-content: flex-end !important;
+
+    gap: 6px !important;
+    font-size: 0.68rem !important;
+  }
+
+  .v3-header .v3-actions {
+    display: flex !important;
+
+    gap: 8px !important;
+    font-size: 0.69rem !important;
+  }
+
+  .v3-header .v3-menu {
+    display: none !important;
+  }
+}
+
+
+/* ==========================================================
+   VITRINE PRINCIPAL DO BRINDES
+   ========================================================== */
+
+@media (min-width: 761px) {
+  .v3-home.v3-brindes .v3-feature {
+    grid-template-columns:
+      minmax(370px, 430px)
+      minmax(0, 1fr) !important;
+
+    gap: clamp(30px, 4vw, 64px) !important;
+    align-items: start;
+
+    padding-bottom: 64px !important;
+  }
+
+  .v3-home.v3-brindes .v3-feature > div:first-child {
+    position: static !important;
+    top: auto !important;
+    min-width: 0;
+  }
+
+  .v3-home.v3-brindes .v3-feature h2 {
+    width: 100%;
+    max-width: 430px !important;
+
+    margin-top: 12px !important;
+
+    font-size: clamp(
+      3rem,
+      3.7vw,
+      4.5rem
+    ) !important;
+
+    line-height: 0.93 !important;
+    letter-spacing: -0.045em !important;
+
+    overflow-wrap: normal !important;
+    word-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    white-space: normal !important;
+    text-wrap: balance;
+  }
+
+  .v3-home.v3-brindes .v3-feature p {
+    max-width: 410px;
+
+    margin-top: 20px;
+
+    font-size: 0.94rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .v3-home.v3-brindes .v3-feature-board {
+    grid-template-rows:
+      repeat(2, 165px) !important;
+
+    gap: 14px !important;
+  }
+
+  .v3-home.v3-brindes .v3-large-product img {
+    height: 330px !important;
+  }
+
+  .v3-home.v3-brindes .v3-small-product img {
+    height: 145px !important;
+  }
+
+  .v3-home.v3-brindes .v3-large-product strong {
+    font-size: clamp(
+      1.35rem,
+      1.8vw,
+      1.8rem
+    ) !important;
+  }
+
+  .v3-home.v3-brindes .v3-small-product strong {
+    font-size: 0.98rem !important;
+  }
+}
+
+
+/* Celular */
+@media (max-width: 760px) {
+  .v3-home.v3-brindes .v3-feature {
+    padding-bottom: 46px !important;
+  }
+
+  .v3-home.v3-brindes .v3-feature h2 {
+    width: 100%;
+    max-width: none !important;
+
+    font-size: clamp(
+      2.5rem,
+      12vw,
+      3.8rem
+    ) !important;
+
+    line-height: 0.94 !important;
+
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .v3-home.v3-brindes .v3-feature p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* FIM MENU MAIOR E VITRINE BRINDES V3 */
