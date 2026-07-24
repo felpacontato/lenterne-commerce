@@ -1,0 +1,40 @@
+name: Storefront build
+
+on:
+  push:
+    branches:
+      - v2
+  pull_request:
+    branches:
+      - v2
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Build all workspaces
+        run: npm run build
+      - name: Package validated source
+        uses: actions/upload-artifact@v4
+        with:
+          name: lenterne-source-${{ github.ref_name }}-${{ github.sha }}
+          include-hidden-files: true
+          retention-days: 1
+          path: |
+            .
+            !.git/**
+            !node_modules/**
+            !**/node_modules/**
+            !**/.next/**
+            !**/dist/**
