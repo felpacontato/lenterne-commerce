@@ -30,7 +30,7 @@ jobs:
       - name: Package validated source
         uses: actions/upload-artifact@v4
         with:
-          name: lenterne-source-${{ github.ref_name }}-${{ github.sha }}
+          name: lenterne-source-${{ github.sha }}
           include-hidden-files: true
           retention-days: 1
           path: |
