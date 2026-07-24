@@ -19,7 +19,7 @@ export const giftsBrand: BrandConfig = {
   intro: "Há mais de 10 anos, a Lenterne fabrica produtos plásticos e acessórios para identificação. Personalizamos cada pedido para empresas, eventos e ações promocionais.",
   primaryCta: "Explorar brindes",
   switchLabel: "Ir para Ferragens",
-  switchUrl: process.env.NEXT_PUBLIC_FERRAGENS_URL ?? "http://localhost:3001"
+  switchUrl: process.env.NEXT_PUBLIC_FERRAGENS_URL ?? "https://lenterne-v2-ferragens.vercel.app"
 };
 
 export const hardwareBrand: BrandConfig = {
@@ -30,5 +30,5 @@ export const hardwareBrand: BrandConfig = {
   intro: "Argolas, garras e clips metálicos para chaveiros, cordões e identificação. Fornecimento com condições para revenda, atacado e compras recorrentes.",
   primaryCta: "Ver catálogo técnico",
   switchLabel: "Ir para Brindes",
-  switchUrl: process.env.NEXT_PUBLIC_BRINDES_URL ?? "http://localhost:3000"
+  switchUrl: process.env.NEXT_PUBLIC_BRINDES_URL ?? "https://lenterne-v2-brindes.vercel.app"
 };
