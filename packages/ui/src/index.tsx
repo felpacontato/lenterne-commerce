@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export function Logo({ compact = false }: { compact?: boolean }) {
-  return <span className="logo" aria-label="Lenterne"><span className="logo-mark" aria-hidden="true">L</span><span>{compact ? "Lenterne" : "Lenterne"}</span></span>;
+  return <span className={`brand-logo-official${compact ? " compact" : ""}`}><img className="brand-logo-image" src="/brand/lenterne-logo-white.png" alt="Lenterne" /></span>;
 }
 
 export function Arrow({ direction = "right" }: { direction?: "right" | "left" }) {
