@@ -1,6 +1,10 @@
 name: Storefront build
 
 on:
+  push:
+    branches:
+      - main
+      - v3
   pull_request:
     branches:
       - main
@@ -23,3 +27,16 @@ jobs:
         run: npm ci
       - name: Build all workspaces
         run: npm run build
+      - name: Package validated source
+        uses: actions/upload-artifact@v4
+        with:
+          name: lenterne-source-${{ github.ref_name }}-${{ github.sha }}
+          include-hidden-files: true
+          retention-days: 1
+          path: |
+            .
+            !.git/**
+            !node_modules/**
+            !**/node_modules/**
+            !**/.next/**
+            !**/dist/**
