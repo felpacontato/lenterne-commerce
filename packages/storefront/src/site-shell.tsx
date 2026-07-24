@@ -17,6 +17,8 @@ const announcements = {
   ferragens: ["Componentes para produção e montagem", "Condições para atacado e revenda", "Atendimento técnico direto"],
 } as const;
 
+const catalogLink = (item: string) => `/catalogo?busca=${encodeURIComponent(item)}`;
+
 function Header({ brand }: { brand: BrandConfig }) {
   const [open, setOpen] = useState(false);
   const { count } = useCart();
@@ -58,7 +60,7 @@ function Header({ brand }: { brand: BrandConfig }) {
           <div className={`shell ${styles.navInner}`}>
             <div className={styles.categoryLinks}>
               <a href="/catalogo">Todas as categorias</a>
-              {channelNavigation.map((item) => <a href="/catalogo" key={item}>{item}</a>)}
+              {channelNavigation.map((item) => <a href={catalogLink(item)} key={item}>{item}</a>)}
             </div>
             <div className={styles.utilityLinks}>
               <a href="/sobre">Quem somos</a>
@@ -88,7 +90,7 @@ function Footer({ brand }: { brand: BrandConfig }) {
         </div>
         <div>
           <h3>Categorias</h3>
-          {channelNavigation.slice(0, 4).map((item) => <a href="/catalogo" key={item}>{item}</a>)}
+          {channelNavigation.slice(0, 4).map((item) => <a href={catalogLink(item)} key={item}>{item}</a>)}
         </div>
         <div>
           <h3>Atendimento</h3>
