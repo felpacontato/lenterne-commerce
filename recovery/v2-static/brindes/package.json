@@ -1,0 +1,7 @@
+{
+  "name": "lenterne-v2-brindes-static-recovery",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
