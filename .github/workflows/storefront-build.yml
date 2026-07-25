@@ -15,6 +15,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [v1, v3]
+    env:
+      VERCEL_PROJECT_PRODUCTION_URL: lenterne-${{ matrix.version }}-brindes.vercel.app
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,12 +31,12 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
-      - name: Build all workspaces
+      - name: Build ${{ matrix.version }}
         run: npm run build
       - name: Package validated source
         uses: actions/upload-artifact@v4
         with:
-          name: lenterne-source-${{ github.ref_name }}-${{ github.sha }}
+          name: lenterne-${{ matrix.version }}-source-${{ github.sha }}
           include-hidden-files: true
           retention-days: 1
           path: |
