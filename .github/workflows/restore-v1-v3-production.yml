@@ -1,0 +1,36 @@
+name: Restore V1 and V3 production
+
+on:
+  push:
+    branches:
+      - restore-v1-v3-production-20260725
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+    steps:
+      - name: Resolve Vercel token
+        shell: bash
+        run: |
+          TOKEN="${VERCEL_TOKEN:-${VERCEL_ACCESS_TOKEN:-}}"
+          if [ -z "$TOKEN" ]; then
+            echo "Nenhum secret VERCEL_TOKEN ou VERCEL_ACCESS_TOKEN foi encontrado."
+            exit 42
+          fi
+          echo "VERCEL_AUTH_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+
+      - name: Restore V1 Brindes
+        run: npx --yes vercel@latest promote https://lenterne-v1-brindes-furgs28kk-felpa-dev-studio.vercel.app --scope felpa-dev-studio --token "$VERCEL_AUTH_TOKEN" --yes
+
+      - name: Restore V1 Ferragens
+        run: npx --yes vercel@latest promote https://lenterne-v1-ferragens-ak0z1vqtz-felpa-dev-studio.vercel.app --scope felpa-dev-studio --token "$VERCEL_AUTH_TOKEN" --yes
+
+      - name: Restore V3 Brindes
+        run: npx --yes vercel@latest promote https://lenterne-v3-brindes-dwt68w2xy-felpa-dev-studio.vercel.app --scope felpa-dev-studio --token "$VERCEL_AUTH_TOKEN" --yes
+
+      - name: Restore V3 Ferragens
+        run: npx --yes vercel@latest promote https://lenterne-v3-ferragens-8kao5m00b-felpa-dev-studio.vercel.app --scope felpa-dev-studio --token "$VERCEL_AUTH_TOKEN" --yes
